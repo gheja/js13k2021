@@ -73,6 +73,53 @@ class Gfx
 		this.ctx.fillStyle = "#ff0";
 		this.ctx.fillRect(_cursorPosition.x * this.pixelRatio, 0, 1, this.canvas.height);
 		this.ctx.fillRect(0, _cursorPosition.y * this.pixelRatio, this.canvas.width, 1);
+		
+		// for emojis
+		this.ctx.textAlign = "center";
+		this.ctx.textBaseline = "middle";
+		
+		// emoji tests below
+		
+		let character;
+		
+		if (performance.now() % 4000 < 2000)
+		{
+			character = "🌘";
+		}
+		else
+		{
+			character = "🚀";
+		}
+		
+		// default emoji with crosshair at 0,0 of text
+		this.ctx.fillStyle = "#888";
+		this.ctx.strokeStyle = "#888";
+		this.ctx.fillRect(400, 350, 1, 200);
+		this.ctx.fillRect(300, 450, 200, 1);
+		this.ctx.beginPath();
+		this.ctx.arc(400, 450, 60, 0, Math.PI * 2);
+		this.ctx.stroke();
+		this.ctx.font = "100px arial";
+		this.ctx.fillText(character, 400, 450);
+		
+		// twemoji emoji with crosshair at 0,0 of text
+		this.ctx.fillStyle = "#888";
+		this.ctx.strokeStyle = "#888";
+		this.ctx.fillRect(600, 350, 1, 200);
+		this.ctx.fillRect(500, 450, 200, 1);
+		this.ctx.font = "100px twemoji";
+		this.ctx.beginPath();
+		this.ctx.arc(600, 450, 60, 0, Math.PI * 2);
+		this.ctx.stroke();
+		this.ctx.fillText(character, 600, 450);
+		
+		// twemoji emoji, rotating
+		this.ctx.setTransform(1, 0, 0, 1, 800, 450);
+		this.ctx.rotate((performance.now() / 2000) * Math.PI * 2);
+		this.ctx.fillText(character, 0, 0);
+		
+		// reset
+		this.ctx.setTransform(1, 0, 0, 1, 0, 0);
 	}
 	
 	draw()
