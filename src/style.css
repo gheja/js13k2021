@@ -7,7 +7,20 @@ body
 
 #c1
 {
-	width: 100vw;
-	height: 100vh;
+	position: fixed;
+	left: 0;
+	top: 0;
 }
 
+#debug
+{
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	font-size: 12pt;
+	height: 100px;
+	background: #0008;
+	color: #fff;
+	z-index: 5001;
+}
