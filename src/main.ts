@@ -1,14 +1,18 @@
 let _system: GravitySystem;
+let _gfx: Gfx;
 let _cursorDown = false;
 let _cursorDownPosition: Vec2D;
 let _cursorPosition: Vec2D;
 
 function onResize()
 {
+	_gfx.resize();
 }
 
 function onFrame()
 {
+	_gfx.draw();
+	
 	window.requestAnimationFrame(onFrame);
 }
 
@@ -76,6 +80,8 @@ function initEventHandlers()
 
 function init()
 {
+	_gfx = new Gfx("c1");
+	
 	initCursor();
 	initEventHandlers();
 	initSystem();
