@@ -127,7 +127,3 @@ class Gfx
 		this.drawDebug();
 	}
 }
-
-function render()
-{
-}
