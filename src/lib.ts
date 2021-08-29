@@ -5,7 +5,7 @@ function dist2d(a: Vec2D, b: Vec2D)
 
 function getAngle2D(a: Vec2D, b: Vec2D): number
 {
-	return Math.atan2(b.t - a.t, b.x - a.x);
+	return Math.atan2(b.y - a.y, b.x - a.x);
 }
 
 function arrayPick(a: Array<any>)
