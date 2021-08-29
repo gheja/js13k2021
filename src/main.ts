@@ -48,6 +48,14 @@ function onMouseClick(event: Event)
 	// TODO: is this needed at all?
 }
 
+function initSystem()
+{
+	_system = new GravitySystem();
+	_system.stepSize = 1;
+	_system.addBody(new GameObject("🌑", "body1", "#ccc", new Vec2D(0, 0),  new Vec2D(0, 0), 1, 0.1));
+	_system.addBody(new GameObject("🚀", "body2", "#f60", new Vec2D(10, 0), new Vec2D(0, 0), 1, 0.1));
+}
+
 function initCursor()
 {
 	_cursorPosition = new Vec2D();
@@ -70,6 +78,7 @@ function init()
 {
 	initCursor();
 	initEventHandlers();
+	initSystem();
 	
 	onResize();
 	onFrame();
