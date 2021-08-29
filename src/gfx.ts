@@ -3,11 +3,20 @@ class Gfx
 	canvas: any;
 	ctx: any;
 	pixelRatio: number;
+	zoom: number;
+	pad: Vec2D;
 	
 	constructor(id: any)
 	{
 		this.canvas = document.getElementById(id);
 		this.ctx = this.canvas.getContext("2d");
+		this.zoom = 10;
+		this.pad = new Vec2D(10, 10);
+	}
+	
+	zoomToFit()
+	{
+		// TODO
 	}
 	
 	resize()
@@ -124,6 +133,23 @@ class Gfx
 	
 	draw()
 	{
-		this.drawDebug();
+		let a, zpx;
+		
+		zpx = this.zoom * this.pixelRatio;
+		
+		this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+		
+		
+		for (a of _system.bodies)
+		{
+			this.ctx.font = (a.diameter * 50 * zpx) + "px twemoji";
+			
+			this.ctx.setTransform(1, 0, 0, 1, (a.position.x + this.pad.x) * zpx, (a.position.y + this.pad.y) * zpx);
+			// this.ctx.rotation()
+			this.ctx.fillText(a.icon, 0, 0);
+		}
+		
+		// reset
+		this.ctx.setTransform(1, 0, 0, 1, 0, 0);
 	}
 }
