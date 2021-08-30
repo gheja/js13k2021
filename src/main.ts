@@ -1,5 +1,5 @@
-let _system: GravitySystem;
 let _gfx: Gfx;
+let _game: Game;
 let _cursorDown = false;
 let _cursorDownPosition: Vec2D;
 let _cursorPosition: Vec2D;
@@ -11,6 +11,7 @@ function onResize()
 
 function onFrame()
 {
+	_game.frame();
 	_gfx.draw();
 	
 	window.requestAnimationFrame(onFrame);
@@ -52,14 +53,6 @@ function onMouseClick(event: Event)
 	// TODO: is this needed at all?
 }
 
-function initSystem()
-{
-	_system = new GravitySystem();
-	_system.stepSize = 1;
-	_system.addBody(new GameObject("🌑", "body1", "#ccc", new Vec2D(0, 0),  new Vec2D(0, 0), 1, 0.1));
-	_system.addBody(new GameObject("🚀", "body2", "#f60", new Vec2D(10, 0), new Vec2D(0, 0), 1, 0.1));
-}
-
 function initCursor()
 {
 	_cursorPosition = new Vec2D();
@@ -78,13 +71,19 @@ function initEventHandlers()
 	window.addEventListener("click", onMouseClick);
 }
 
+function initGame()
+{
+	_game = new Game();
+	_game.loadLevel();
+}
+
 function init()
 {
 	_gfx = new Gfx("c1");
 	
 	initCursor();
 	initEventHandlers();
-	initSystem();
+	initGame();
 	
 	onResize();
 	onFrame();
