@@ -1,3 +1,18 @@
+function _x(a)
+{
+	return (a + _gfx.pad.x) *_gfx.pixelRatio * _gfx.zoom;
+}
+
+function _y(a)
+{
+	return (a + _gfx.pad.y) *_gfx.pixelRatio * _gfx.zoom;
+}
+
+function _px(a)
+{
+	return a *_gfx.pixelRatio * _gfx.zoom;
+}
+
 class Gfx
 {
 	canvas: any;
