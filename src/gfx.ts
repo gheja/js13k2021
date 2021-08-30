@@ -55,6 +55,16 @@ class Gfx
 		
 		this.canvas.style.width = window.innerWidth;
 		this.canvas.style.height = window.innerHeight;
+		
+		// initialize gradients
+		let gradient
+		
+		gradient = this.ctx.createLinearGradient(0, 0, this.canvas.width, 0);
+		gradient.addColorStop(0.0, "#f0f");
+		gradient.addColorStop(0.5, "#03f");
+		gradient.addColorStop(1.0, "#0f3");
+		
+		this.pathGradient = gradient;
 	}
 	
 	// NOTE: this will be removed by Closure Compiler as it will not be
@@ -150,7 +160,7 @@ class Gfx
 	{
 		let a, b;
 		
-		this.ctx.strokeStyle = "#fff5";
+		this.ctx.strokeStyle = this.pathGradient;
 		this.ctx.lineWidth = _px(0.3);
 		
 		for (a of _game.system.bodies)
