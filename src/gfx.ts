@@ -146,25 +146,48 @@ class Gfx
 		this.ctx.setTransform(1, 0, 0, 1, 0, 0);
 	}
 	
-	draw()
+	drawPredictedPaths()
 	{
-		let a, zpx;
+		let a, b;
 		
-		zpx = this.zoom * this.pixelRatio;
+		this.ctx.strokeStyle = "#fff5";
+		this.ctx.lineWidth = _px(0.3);
 		
-		this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
-		
-		
-		for (a of _system.bodies)
+		for (a of _game.system.bodies)
 		{
-			this.ctx.font = (a.diameter * 50 * zpx) + "px twemoji";
+			this.ctx.beginPath();
+			this.ctx.moveTo(_x(a.position.x), _y(a.position.y));
 			
-			this.ctx.setTransform(1, 0, 0, 1, (a.position.x + this.pad.x) * zpx, (a.position.y + this.pad.y) * zpx);
+			for (b of a.predictedPath)
+			{
+				this.ctx.lineTo(_x(b.x), _y(b.y));
+			}
+			this.ctx.stroke();
+		}
+	}
+	
+	drawObjects()
+	{
+		let a;
+		
+		for (a of _game.system.bodies)
+		{
+			this.ctx.font = _px(a.diameter * 50) + "px twemoji";
+			
+			this.ctx.setTransform(1, 0, 0, 1, _x(a.position.x), _y(a.position.y));
 			// this.ctx.rotation()
 			this.ctx.fillText(a.icon, 0, 0);
 		}
-		
-		// reset
+	}
+	
+	draw()
+	{
+		this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
 		this.ctx.setTransform(1, 0, 0, 1, 0, 0);
+		this.ctx.textAlign = "center";
+		this.ctx.textBaseline = "middle";
+		
+		this.drawPredictedPaths();
+		this.drawObjects();
 	}
 }
