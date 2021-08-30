@@ -57,6 +57,7 @@ class Game
 	
 	frame()
 	{
+		// TODO: tick() need to be independent of frame()
 		this.tick();
 		
 		this.predictionReset();
