@@ -5,6 +5,8 @@ class GameObject extends GravityBody
 	color: string;
 	diameter: number;
 	predictedPath: Array<Vec2D>;
+	pickable: boolean;
+	picked: boolean;
 	
 	constructor(icon: string, name: string, color: string, position: Vec2D, velocity: Vec2D, mass: number, diameter: number)
 	{
@@ -13,5 +15,7 @@ class GameObject extends GravityBody
 		this.icon = icon;
 		this.color = color;
 		this.diameter = diameter;
+		this.pickable = true;
+		this.picked = false;
 	}
 }
