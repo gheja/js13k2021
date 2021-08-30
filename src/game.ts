@@ -18,7 +18,7 @@ class Game
 		
 		for (a of this.system.bodies)
 		{
-			this.systemPrediction.addBody(new GravityBody("", new Vec2D(a.position.x, a.position.y), new Vec2D(a.velocity.x, a.velocity.y), a.mass));
+			this.systemPrediction.addBody(new GravityBody(new Vec2D(a.position.x, a.position.y), new Vec2D(a.velocity.x, a.velocity.y), a.mass));
 		}
 	}
 	
