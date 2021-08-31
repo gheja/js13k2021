@@ -83,7 +83,7 @@ class Game
 			
 			for (a of this.system.bodies)
 			{
-//				if (a.pickable)
+				if (a.pickable)
 				{
 					if (dist2d(new Vec2D(_x(a.position.x) / _gfx.pixelRatio, _y(a.position.y) / _gfx.pixelRatio), _cursorDownPosition) < 50)
 					{
