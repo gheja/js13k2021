@@ -5,8 +5,8 @@ function applyDrag(obj)
 	vector = new Vec2D(_cursorDownPosition.x - _cursorPosition.x, _cursorDownPosition.y - _cursorPosition.y);
 	
 	// TODO: find out this multiplier
-	obj.velocity.x += vector.x / 100;
-	obj.velocity.y += vector.y / 100;
+	obj.velocity.x += vector.x / 5000;
+	obj.velocity.y += vector.y / 5000;
 }
 
 class Game
