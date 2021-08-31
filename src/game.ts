@@ -7,8 +7,6 @@ function applyDrag(obj)
 	// TODO: find out this multiplier
 	obj.velocity.x += vector.x / 100;
 	obj.velocity.y += vector.y / 100;
-	
-	console.log(vector);
 }
 
 class Game
@@ -88,7 +86,6 @@ class Game
 //				if (a.pickable)
 				{
 					d = dist2d(new Vec2D(_x(a.position.x) / _gfx.pixelRatio, _y(a.position.y) / _gfx.pixelRatio), _cursorDownPosition);
-					console.log(d);
 					if (d < 50)
 					{
 						a.picked = true;
