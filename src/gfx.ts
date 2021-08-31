@@ -176,6 +176,20 @@ class Gfx
 		}
 	}
 	
+	drawDrag()
+	{
+		if (_cursorDown)
+		{
+			this.ctx.strokeStyle = "#ff4";
+			this.ctx.lineWidth = _px(0.3);
+			
+			this.ctx.beginPath();
+			this.ctx.moveTo(_cursorDownPosition.x * _gfx.pixelRatio, _cursorDownPosition.y * _gfx.pixelRatio);
+			this.ctx.lineTo(_cursorPosition.x * _gfx.pixelRatio, _cursorPosition.y * _gfx.pixelRatio);
+			this.ctx.stroke();
+		}
+	}
+	
 	drawObjects()
 	{
 		let a;
@@ -198,6 +212,7 @@ class Gfx
 		this.ctx.textBaseline = "middle";
 		
 		this.drawPredictedPaths();
+		this.drawDrag();
 		this.drawObjects();
 	}
 }
