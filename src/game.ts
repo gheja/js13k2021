@@ -70,11 +70,11 @@ class Game
 	
 	handleDrag()
 	{
-		let a, d;
+		let a;
 		
+		// just picked an object
 		if (!this.lastCursorDown && _cursorDown)
 		{
-			// pick an object
 			
 			for (a of this.system.bodies)
 			{
@@ -85,8 +85,7 @@ class Game
 			{
 //				if (a.pickable)
 				{
-					d = dist2d(new Vec2D(_x(a.position.x) / _gfx.pixelRatio, _y(a.position.y) / _gfx.pixelRatio), _cursorDownPosition);
-					if (d < 50)
+					if (dist2d(new Vec2D(_x(a.position.x) / _gfx.pixelRatio, _y(a.position.y) / _gfx.pixelRatio), _cursorDownPosition) < 50)
 					{
 						a.picked = true;
 						break;
@@ -95,12 +94,9 @@ class Game
 			}
 		}
 		
-		// calculate drag
-		
+		// just released the picked object (if any)
 		if (this.lastCursorDown && !_cursorDown)
 		{
-			// release it
-			
 			for (a of this.system.bodies)
 			{
 				if (a.picked)
