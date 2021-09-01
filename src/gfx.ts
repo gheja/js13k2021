@@ -173,6 +173,7 @@ class Gfx
 		
 		this.ctx.strokeStyle = this.pathGradient;
 		this.ctx.lineWidth = _px(0.3);
+		this.ctx.setLineDash([]);
 		
 		for (a of _game.system.bodies)
 		{
@@ -201,18 +202,39 @@ class Gfx
 		}
 	}
 	
-	drawObjects()
+	drawObjects(blackholes: boolean)
 	{
 		let a;
 		
 		for (a of _game.system.bodies)
 		{
-			this.ctx.font = _px(a.diameter * 50) + "px twemoji";
+			if (a.isBlackHole != blackholes)
+			{
+				continue;
+			}
+			
+			this.ctx.font = _px(a.diameter) + "px twemoji";
 			
 			this.ctx.setTransform(1, 0, 0, 1, _x(a.position.x), _y(a.position.y));
 			// this.ctx.rotation()
 			this.ctx.fillText(a.icon, 0, 0);
+			
+			if (a.isBlackHole)
+			{
+				let n;
+				n = _pulsate(3000, 0);
+				
+				this.ctx.lineWidth = _px(0.4);
+				this.ctx.setLineDash([20 * (1 + n*0.1), 10 * (1 + n*0.1)]);
+				
+				this.ctx.strokeStyle = "#f00a";
+				this.ctx.beginPath();
+				this.ctx.arc(0, 0, _px(a.influenceDistance * (0.5 * (1 + n*0.1))), 0, Math.PI * 2);
+				this.ctx.stroke();
+			}
 		}
+		
+		this.ctx.setTransform(1, 0, 0, 1, 0, 0);
 	}
 	
 	draw()
@@ -222,8 +244,9 @@ class Gfx
 		this.ctx.textAlign = "center";
 		this.ctx.textBaseline = "middle";
 		
+		this.drawObjects(true);
 		this.drawPredictedPaths();
 		this.drawDrag();
-		this.drawObjects();
+		this.drawObjects(false);
 	}
 }
