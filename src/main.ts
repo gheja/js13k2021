@@ -41,8 +41,8 @@ function onMouseMove(event: Event)
 		}
 		else
 		{
-			_cursorPosition.x = event.clientX;
-			_cursorPosition.y = event.clientY;
+			_cursorPosition.x = (event as MouseEvent).clientX;
+			_cursorPosition.y = (event as MouseEvent).clientY;
 		}
 	}
 	catch (e) {}
