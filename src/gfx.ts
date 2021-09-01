@@ -30,6 +30,7 @@ class Gfx
 	pixelRatio: number;
 	zoom: number;
 	pad: Vec2D;
+	pathGradient: CanvasGradient;
 	
 	constructor(id: any)
 	{
@@ -67,7 +68,7 @@ class Gfx
 		this.canvas.style.height = window.innerHeight;
 		
 		// initialize gradients
-		let gradient
+		let gradient: CanvasGradient;
 		
 		gradient = this.ctx.createLinearGradient(0, 0, this.canvas.width, 0);
 		gradient.addColorStop(0.0, "#f0f");
