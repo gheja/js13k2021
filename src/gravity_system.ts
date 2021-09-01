@@ -19,7 +19,7 @@ class GravitySystem
 		let a: GravityBody;
 		let b: GravityBody;
 		let d: Vec2D;
-		let r2: number;
+		let r: number;
 		let f: number;
 		let acceleration: number;
 		
@@ -58,9 +58,22 @@ class GravitySystem
 				d.y = b.position.y - a.position.y;
 				d.normalize();
 				
-				r2 = dist2d(a.position, b.position) ** 2;
+				r = dist2d(a.position, b.position);
 				
-				f = gravConst * ((a.mass * b.mass) / r2); // kg * m / s^2
+				f = gravConst * ((a.mass * b.mass) / (r ** 2)); // kg * m / s^2
+				
+				// Not too scientific
+				//
+				// Here the black hole has an area of influence to
+				// prevent falling everything into it, ruining the game.
+				// Inside this area its gravity is applied gradually,
+				// outside it is ignored completely.
+				
+				if (b.influenceDistance != 0)
+				{
+					// TODO: check pow
+					f *= Math.max(0, 1 - (r / b.influenceDistance) ** 5);
+				}
 				
 				acceleration = f / a.mass; // m / s^2
 				
