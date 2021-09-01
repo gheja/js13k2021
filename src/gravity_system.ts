@@ -32,9 +32,24 @@ class GravitySystem
 		
 		for (a of this.bodies)
 		{
+			if (a.isDestroyed)
+			{
+				continue;
+			}
+			
 			for (b of this.bodies)
 			{
 				if (a == b)
+				{
+					continue;
+				}
+				
+				if (b.isDestroyed)
+				{
+					continue;
+				}
+				
+				if (a.isBlackHole)
 				{
 					continue;
 				}
@@ -56,7 +71,33 @@ class GravitySystem
 		
 		for (a of this.bodies)
 		{
+			if (a.isDestroyed)
+			{
+				continue;
+			}
+			
 			a.stepEnd(this.stepSize);
+			
+			for (b of this.bodies)
+			{
+				if (a == b)
+				{
+					continue;
+				}
+				
+				if (b.isBlackHole && !a.isBlackHole)
+				{
+					if (dist2d(a.position, b.position) < (b.diameter/2 - a.diameter/2))
+					{
+						a.isDestroyed = true;
+					}
+				}
+			}
 		}
+	}
+	
+	cleanup()
+	{
+		this.bodies = this.bodies.filter(function(a) { return !a.isDestroyed; });
 	}
 }
