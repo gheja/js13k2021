@@ -184,7 +184,15 @@ class Gfx
 			{
 				this.ctx.lineTo(_x(b.x), _y(b.y));
 			}
+			
 			this.ctx.stroke();
+			
+			// draw a warning sign when falling into the black hole
+			if (a.predictedToBeDestroyed && _blink(1000, 500, 0))
+			{
+				this.ctx.font = _px(3) + "px twemoji";
+				this.ctx.fillText("⚠️", _x(b.x), _y(b.y));
+			}
 		}
 	}
 	
