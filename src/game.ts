@@ -131,6 +131,7 @@ class Game
 	tick()
 	{
 		this.system.step();
+		this.system.cleanup();
 	}
 	
 	frame()
