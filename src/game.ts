@@ -31,7 +31,10 @@ class Game
 		
 		for (a of this.system.bodies)
 		{
-			b = new GravityBody(new Vec2D(a.position.x, a.position.y), new Vec2D(a.velocity.x, a.velocity.y), a.mass);
+			b = new GravityBody(new Vec2D(a.position.x, a.position.y), new Vec2D(a.velocity.x, a.velocity.y), a.mass, a.diameter);
+			b.isBlackHole = a.isBlackHole;
+			b.influenceDistance = a.influenceDistance;
+			
 			if (a.picked)
 			{
 				applyDrag(b);
@@ -57,6 +60,11 @@ class Game
 			{
 				this.system.bodies[k].predictedPath.push(new Vec2D(this.systemPrediction.bodies[k].position.x, this.systemPrediction.bodies[k].position.y));
 			}
+		}
+		
+		for (k=0; k<this.system.bodies.length; k++)
+		{
+			this.system.bodies[k].predictedToBeDestroyed = this.systemPrediction.bodies[k].isDestroyed;
 		}
 	}
 	
