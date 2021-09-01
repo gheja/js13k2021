@@ -70,10 +70,19 @@ class Game
 	
 	loadLevel()
 	{
+		let a;
+		
 		this.system.bodies = [];
 		this.system.stepSize = 1;
-		this.system.addBody(new GameObject("🌑", "body1", "#ccc", new Vec2D(20, 20), new Vec2D(0.0, 0.0), 1e11, 0.1));
-		this.system.addBody(new GameObject("🚀", "body2", "#f60", new Vec2D(40, 20), new Vec2D(0.0, 0.5), 1e9, 0.1));
+		
+		a = new GameObject("🌑", "body1", "#ccc", new Vec2D(30, 70), new Vec2D(0.0, 0.0), 1e10, 20);
+		a.isBlackHole = true;
+		a.influenceDistance = 40;
+		this.system.addBody(a);
+		
+		this.system.addBody(new GameObject("🌑", "body1", "#ccc", new Vec2D(20, 20), new Vec2D(0.0, 0.0), 1e11, 5));
+		this.system.addBody(new GameObject("🚀", "body2", "#f60", new Vec2D(40, 20), new Vec2D(0.0, 0.5), 1e9, 5));
+		this.system.addBody(new GameObject("🛰️", "body3", "#f60", new Vec2D(50, 20), new Vec2D(0.0, 0.5), 1e9, 5));
 	}
 	
 	handleDrag()
