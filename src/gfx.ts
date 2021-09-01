@@ -13,6 +13,16 @@ function _px(a)
 	return a *_gfx.pixelRatio * _gfx.zoom;
 }
 
+function _pulsate(length: number, offset: number)
+{
+	return Math.cos((performance.now() + offset) / length * Math.PI * 2);
+}
+
+function _blink(length: number, duty: number, offset: number)
+{
+	return (performance.now() + offset) % length < duty;
+}
+
 class Gfx
 {
 	canvas: any;
