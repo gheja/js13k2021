@@ -73,7 +73,9 @@ class Game
 		let a, item, data;
 		
 		this.system.bodies = [];
-		this.system.stepSize = 1;
+		this.system.stepSize = _levels[levelIndex][1];
+		_gfx.pad.x = _levels[levelIndex][2];
+		_gfx.pad.y = _levels[levelIndex][3];
 		
 		for (item of _levels[levelIndex][0])
 		{
