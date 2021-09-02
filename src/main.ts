@@ -74,7 +74,7 @@ function initEventHandlers()
 function initGame()
 {
 	_game = new Game();
-	_game.loadLevel();
+	_game.loadLevel(0);
 }
 
 function init()

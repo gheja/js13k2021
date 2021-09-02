@@ -68,21 +68,25 @@ class Game
 		}
 	}
 	
-	loadLevel()
+	loadLevel(levelIndex)
 	{
-		let a;
+		let a, item, data;
 		
 		this.system.bodies = [];
 		this.system.stepSize = 1;
 		
-		a = new GameObject("🌑", "body1", "#ccc", new Vec2D(30, 70), new Vec2D(0.0, 0.0), 1e10, 20);
-		a.isBlackHole = true;
-		a.influenceDistance = 40;
-		this.system.addBody(a);
-		
-		this.system.addBody(new GameObject("🌑", "body1", "#ccc", new Vec2D(20, 20), new Vec2D(0.0, 0.0), 1e11, 5));
-		this.system.addBody(new GameObject("🚀", "body2", "#f60", new Vec2D(40, 20), new Vec2D(0.0, 0.5), 1e9, 5));
-		this.system.addBody(new GameObject("🛰️", "body3", "#f60", new Vec2D(50, 20), new Vec2D(0.0, 0.5), 1e9, 5));
+		for (item of _levels[levelIndex][0])
+		{
+			a = new GameObject(item[0], "dummy", "#fff", new Vec2D(item[1], item[2]), new Vec2D(item[3], item[4]), item[5], item[6]);
+			
+			if (item[7])
+			{
+				a.isBlackHole = true;
+				a.influenceDistance = item[7];
+			}
+			
+			this.system.addBody(a);
+		}
 	}
 	
 	handleDrag()
