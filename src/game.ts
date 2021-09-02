@@ -83,6 +83,7 @@ class Game
 			
 			if (item[7])
 			{
+				a.pickable = false;
 				a.isBlackHole = true;
 				a.influenceDistance = item[7];
 			}
