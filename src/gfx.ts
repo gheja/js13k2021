@@ -78,6 +78,18 @@ class Gfx
 		this.pathGradient = gradient;
 	}
 	
+	toggleFullscreen()
+	{
+		if (document.fullscreenElement)
+		{
+			document.exitFullscreen();
+		}
+		else
+		{
+			document.documentElement.requestFullscreen();
+		}
+	}
+	
 	// NOTE: this will be removed by Closure Compiler as it will not be
 	// called in the final code
 	drawDebug()
