@@ -3,6 +3,7 @@ body
 	background: #112;
 	padding: 0;
 	margin: 0;
+	overscroll-behavior: none;
 }
 
 #c1
