@@ -9,6 +9,9 @@
 - [ ] drag from center of object, not cursorDownPosition
 - [ ] rotation
 - [ ] "rotation follows trajectory" toggle
+- [ ] logic to check objects that moved from their original orbit
+- [ ] win condition
+- [ ] lose condition (if any)
 
 ## ui
 - [ ] black hole grows? only gfx? something else?
@@ -18,6 +21,14 @@
 - [ ] background
 - [ ] sticky
 - [ ] "falling into black hole" fade
+
+## elements
+- [ ] goo to slow down
+- [ ] thing that should not be destroyed
+- [ ] thing that should be destroyed last
+- [ ] powerups
+- [ ] sentinels with viewing cone
+- [ ] black hole destroyer rocket
 
 ## achievements
 
