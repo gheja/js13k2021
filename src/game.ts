@@ -1,4 +1,4 @@
-function applyDrag(obj)
+function applyDrag(obj, log)
 {
 	let vector: Vec2D;
 	
@@ -7,6 +7,12 @@ function applyDrag(obj)
 	// TODO: find out this multiplier
 	obj.velocity.x += vector.x / 5000;
 	obj.velocity.y += vector.y / 5000;
+	
+	if (log)
+	{
+		_stats.correctionCount++;
+		_stats.correctionTotalSpeed += dist2d(new Vec2D(0, 0), vector) / 5000;
+	}
 }
 
 class Game
@@ -111,6 +117,8 @@ class Game
 		_stats.victoryPoints = 0;
 		_stats.victoryPointsGoal = level[4];
 		_stats.ticksPassed = 0;
+		_stats.correctionCount = 0;
+		_stats.correctionTotalSpeed = 0;
 		
 		this.system.bodies = [];
 		this.system.stepSize = _levels[levelIndex][1];
@@ -171,7 +179,7 @@ class Game
 			{
 				if (a.picked)
 				{
-					applyDrag(a);
+					applyDrag(a, true);
 				}
 				
 				a.picked = false;
