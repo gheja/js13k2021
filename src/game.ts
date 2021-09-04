@@ -234,7 +234,11 @@ class Game
 	
 	updateStatus()
 	{
-		this.setStatus(_stats.victoryPoints + " / " + _stats.victoryPointsGoal);
+		this.setStatus(
+			_stats.correctionCount + " corrections (" + Math.floor(_stats.correctionTotalSpeed * 1000) + "f) " + " &#xb7; " +
+			_stats.victoryPoints + " / " + _stats.victoryPointsGoal + " &#xb7; " +
+			this.ticksToTime(_stats.ticksPassed)
+		);
 	}
 	
 	tick()
