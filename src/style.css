@@ -13,6 +13,15 @@ body
 	top: 0;
 }
 
+#s1
+{
+	position: fixed;
+	top: 0.5em;
+	right: 0.5em;
+	color: #fffa;
+	font-size: 20pt;
+}
+
 #debug
 {
 	position: fixed;

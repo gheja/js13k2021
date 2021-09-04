@@ -24,6 +24,21 @@ class Game
 		this.paused = false;
 	}
 	
+	setStatus(s)
+	{
+		let obj;
+		
+		obj = document.getElementById("s1");
+		
+		// Only update when needed. Some browsers reformat innerHTML so
+		// store the string in the dataset as well.
+		if (obj.dataset["s"] != s)
+		{
+			obj.innerHTML = s;
+			obj.dataset["s"] = s;
+		}
+	}
+	
 	predictionReset()
 	{
 		let a, b;
@@ -191,6 +206,11 @@ class Game
 		}
 	}
 	
+	updateStatus()
+	{
+		this.setStatus(_stats.victoryPoints + " / " + _stats.victoryPointsGoal);
+	}
+	
 	tick()
 	{
 		this.system.step();
@@ -209,6 +229,7 @@ class Game
 			this.tick();
 		}
 		
+		this.updateStatus();
 		this.updateObjectRotation();
 		this.predictionReset();
 		this.predictionRun();
