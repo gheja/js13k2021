@@ -5,6 +5,8 @@ class Game
 	systemPrediction: GravitySystem;
 	lastCursorDown: boolean;
 	paused: boolean;
+	autopaused: boolean;
+	autopauseEnabled: boolean;
 	tooltip: string;
 	
 	currentDragVector: Vec2D;
@@ -16,6 +18,8 @@ class Game
 		this.systemPrediction = new GravitySystem();
 		this.lastCursorDown = false;
 		this.paused = false;
+		this.autopaused = false;
+		this.autopauseEnabled = true;
 		this.setTooltip("");
 	}
 	
@@ -126,6 +130,8 @@ class Game
 		_stats.correctionCount = 0;
 		_stats.correctionTotalCost = 0;
 		
+		this.paused = false;
+		this.autopaused = false;
 		this.system.bodies = [];
 		this.system.stepSize = _levels[levelIndex][1];
 		_gfx.pad.x = level[2];
@@ -182,6 +188,11 @@ class Game
 					}
 				}
 			}
+			
+			if (this.autopauseEnabled)
+			{
+				this.autopaused = true;
+			}
 		}
 		
 		this.currentDragVector = new Vec2D((_cursorDownPosition.x - _cursorPosition.x) * DRAG_VECTOR_MULTIPLIER, (_cursorDownPosition.y - _cursorPosition.y) * DRAG_VECTOR_MULTIPLIER);
@@ -204,6 +215,10 @@ class Game
 			}
 			
 			this.currentDragVectorCost = null;
+			if (this.autopauseEnabled)
+			{
+				this.autopaused = false;
+			}
 		}
 		
 		this.lastCursorDown = _cursorDown;
@@ -284,7 +299,7 @@ class Game
 	{
 		this.handleDrag();
 		
-		if (!this.paused)
+		if (!this.paused && !this.autopaused)
 		{
 			// TODO: tick() need to be independent of frame()
 			this.tick();
