@@ -6,6 +6,7 @@
 - [ ] pause
 - [ ] speed 0.5x, 1x, 2x, 5x
 - [ ] auto-pause toggle
+- [ ] full screen toggle
 - [ ] restart level
 - [ ] drag from center of object, not cursorDownPosition
 - [x] rotation
@@ -22,6 +23,10 @@
 - [ ] background
 - [ ] sticky
 - [ ] "falling into black hole" fade
+- [ ] dashed line for path
+- [ ] separate line for altered path preview
+- [ ] win screen
+- [ ] transition
 
 ## elements
 - [ ] goo to slow down
