@@ -70,14 +70,16 @@ class Game
 	
 	loadLevel(levelIndex)
 	{
-		let a, item, obj, data;
+		let a, level, item, obj, data;
+		
+		level = _levels[levelIndex];
 		
 		this.system.bodies = [];
 		this.system.stepSize = _levels[levelIndex][1];
-		_gfx.pad.x = _levels[levelIndex][2];
-		_gfx.pad.y = _levels[levelIndex][3];
+		_gfx.pad.x = level[2];
+		_gfx.pad.y = level[3];
 		
-		for (item of _levels[levelIndex][0])
+		for (item of level[0])
 		{
 			obj = _objectDefinitions[item[0]];
 			
