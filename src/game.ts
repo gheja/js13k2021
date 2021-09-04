@@ -70,7 +70,7 @@ class Game
 	
 	loadLevel(levelIndex)
 	{
-		let a, item, data;
+		let a, item, obj, data;
 		
 		this.system.bodies = [];
 		this.system.stepSize = _levels[levelIndex][1];
@@ -79,17 +79,19 @@ class Game
 		
 		for (item of _levels[levelIndex][0])
 		{
-			a = new GameObject(item[0], "dummy", "#fff", new Vec2D(item[1], item[2]), new Vec2D(item[3], item[4]), item[5], item[6]);
+			obj = _objectDefinitions[item[0]];
 			
-			if (item[7])
+			a = new GameObject(obj[0], "dummy", "#fff", new Vec2D(item[1], item[2]), new Vec2D(item[3], item[4]), item[5], obj[1]);
+			
+			if (obj[4])
 			{
 				a.pickable = false;
 				a.isBlackHole = true;
-				a.influenceDistance = item[7];
+				a.influenceDistance = obj[4];
 			}
 			
-			a.rotationBase = item[8];
-			a.rotationFollowsTrajectory = item[9];
+			a.rotationBase = obj[2];
+			a.rotationFollowsTrajectory = obj[3];
 			
 			this.system.addBody(a);
 		}
