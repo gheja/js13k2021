@@ -93,6 +93,7 @@ class Game
 		
 		_stats.victoryPoints = 0;
 		_stats.victoryPointsGoal = level[4];
+		_stats.ticksPassed = 0;
 		
 		this.system.bodies = [];
 		this.system.stepSize = _levels[levelIndex][1];
@@ -213,6 +214,7 @@ class Game
 	
 	tick()
 	{
+		_stats.ticksPassed++;
 		this.system.step();
 		this.handleDestroyedObjects();
 		this.system.cleanup();
