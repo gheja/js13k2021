@@ -1,17 +1,12 @@
-function applyDrag(obj, log)
+function applyDrag(obj: SystemObject, vector: Vec2D, log: boolean)
 {
-	let vector: Vec2D;
-	
-	vector = new Vec2D(_cursorDownPosition.x - _cursorPosition.x, _cursorDownPosition.y - _cursorPosition.y);
-	
-	// TODO: find out this multiplier
-	obj.velocity.x += vector.x / 5000;
-	obj.velocity.y += vector.y / 5000;
+	obj.velocity.x += vector.x;
+	obj.velocity.y += vector.y;
 	
 	if (log)
 	{
 		_stats.correctionCount++;
-		_stats.correctionTotalSpeed += dist2d(new Vec2D(0, 0), vector) / 5000;
+		_stats.correctionTotalSpeed += dist2d(new Vec2D(0, 0), vector);
 	}
 }
 
@@ -22,6 +17,8 @@ class Game
 	lastCursorDown: boolean;
 	paused: boolean;
 	tooltip: string;
+	
+	currentDragVector: Vec2D;
 	
 	constructor()
 	{
@@ -96,7 +93,7 @@ class Game
 			
 			if (a.picked)
 			{
-				applyDrag(b);
+				applyDrag(b, this.currentDragVector, false);
 			}
 			this.systemPrediction.addBody(b);
 		}
@@ -191,6 +188,8 @@ class Game
 			}
 		}
 		
+		this.currentDragVector = new Vec2D((_cursorDownPosition.x - _cursorPosition.x) * DRAG_VECTOR_MULTIPLIER, (_cursorDownPosition.y - _cursorPosition.y) * DRAG_VECTOR_MULTIPLIER);
+		
 		// just released the picked object (if any)
 		if (this.lastCursorDown && !_cursorDown)
 		{
@@ -198,7 +197,7 @@ class Game
 			{
 				if (a.picked)
 				{
-					applyDrag(a, true);
+					applyDrag(a, this.currentDragVector, true);
 				}
 				
 				a.picked = false;
