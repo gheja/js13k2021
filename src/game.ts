@@ -39,6 +39,23 @@ class Game
 		}
 	}
 	
+	ticksToTime(n)
+	{
+		let s;
+		
+		n = Math.floor(n / 10);
+		
+		s = (n % 6) + "0";
+		n = Math.floor(n / 6);
+		
+		s = (n % 24) + ":" + s;
+		n = Math.floor(n / 24);
+		
+		s = (n) + " days, " + s;
+		
+		return s;
+	}
+	
 	predictionReset()
 	{
 		let a, b;
