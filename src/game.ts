@@ -135,6 +135,21 @@ class Game
 		this.lastCursorDown = _cursorDown;
 	}
 	
+	updateObjectRotation()
+	{
+		let a, dir;
+		
+		for (a of this.system.bodies)
+		{
+			if (!a.rotationFollowsTrajectory)
+			{
+				continue;
+			}
+			
+			a.rotation = a.rotationBase + getAngle2D(new Vec2D(0, 0), a.velocity);
+		}
+	}
+	
 	tick()
 	{
 		this.system.step();
@@ -148,6 +163,7 @@ class Game
 		// TODO: tick() need to be independent of frame()
 		this.tick();
 		
+		this.updateObjectRotation();
 		this.predictionReset();
 		this.predictionRun();
 	}
