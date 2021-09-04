@@ -14,12 +14,14 @@ class Game
 	system: GravitySystem;
 	systemPrediction: GravitySystem;
 	lastCursorDown: boolean;
+	paused: boolean;
 	
 	constructor()
 	{
 		this.system = new GravitySystem();
 		this.systemPrediction = new GravitySystem();
 		this.lastCursorDown = false;
+		this.paused = false;
 	}
 	
 	predictionReset()
@@ -180,19 +182,32 @@ class Game
 		}
 	}
 	
+	checkWinLoseConditions()
+	{
+		if (_stats.victoryPoints >= _stats.victoryPointsGoal)
+		{
+			this.paused = true;
+			console.log("congrats!");
+		}
+	}
+	
 	tick()
 	{
 		this.system.step();
 		this.handleDestroyedObjects();
 		this.system.cleanup();
+		this.checkWinLoseConditions();
 	}
 	
 	frame()
 	{
 		this.handleDrag();
 		
-		// TODO: tick() need to be independent of frame()
-		this.tick();
+		if (!this.paused)
+		{
+			// TODO: tick() need to be independent of frame()
+			this.tick();
+		}
 		
 		this.updateObjectRotation();
 		this.predictionReset();
