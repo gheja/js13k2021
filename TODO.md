@@ -6,9 +6,10 @@
 - [ ] pause
 - [ ] speed 0.5x, 1x, 2x, 5x
 - [ ] auto-pause toggle
+- [ ] restart level
 - [ ] drag from center of object, not cursorDownPosition
-- [ ] rotation
-- [ ] "rotation follows trajectory" toggle
+- [x] rotation
+- [x] "rotation follows trajectory" toggle
 - [ ] logic to check objects that moved from their original orbit
 - [ ] win condition
 - [ ] lose condition (if any)
