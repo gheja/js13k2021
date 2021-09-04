@@ -21,6 +21,7 @@ class Game
 	systemPrediction: GravitySystem;
 	lastCursorDown: boolean;
 	paused: boolean;
+	tooltip: string;
 	
 	constructor()
 	{
@@ -28,6 +29,24 @@ class Game
 		this.systemPrediction = new GravitySystem();
 		this.lastCursorDown = false;
 		this.paused = false;
+		this.setTooltip("");
+	}
+	
+	setTooltip(s)
+	{
+		let obj;
+		
+		obj = document.getElementById("s2");
+		
+		if (s)
+		{
+			obj.innerHTML = s;
+			obj.className = "shown";
+		}
+		else
+		{
+			obj.className = "";
+		}
 	}
 	
 	setStatus(s)
