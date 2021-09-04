@@ -88,6 +88,9 @@ class Game
 				a.influenceDistance = item[7];
 			}
 			
+			a.rotationBase = item[8];
+			a.rotationFollowsTrajectory = item[9];
+			
 			this.system.addBody(a);
 		}
 	}
