@@ -1,9 +1,9 @@
 let _objectDefinitions = [
-	// [ icon, diameterrotationBase, rotationFollowsTrajectory, influenceDistance
-	[ "🌑",  5, 0,     false ],     // OBJ_ROCK = 0
-	[ "🚀",  5, 0.125, true  ],     // OBJ_ROCKET
-	[ "🛰️",  5, 0.125, true ],      // OBJ_SATELLITE
-	[ "🌑", 20, 0,     false, 40 ], // OBJ_BLACK_HOLE
+	// [ icon, diameterrotationBase, rotationFollowsTrajectory, points, influenceDistance
+	[ "🌑",  5, 0,     false, 10 ],     // OBJ_ROCK = 0
+	[ "🚀",  5, 0.125, true,  20 ],     // OBJ_ROCKET
+	[ "🛰️",  5, 0.125, true,  10 ],     // OBJ_SATELLITE
+	[ "🌑", 20, 0,     false,  0, 40 ], // OBJ_BLACK_HOLE
 ];
 
 let _levels = [
@@ -15,7 +15,7 @@ let _levels = [
 			[ OBJ_SATELLITE,  60, 70,  0.0,  0.0,  1e3 ],
 		],
 		
-		1, 20, 0,
+		1, 20, 0, 30,
 	],
 	
 	[
@@ -24,7 +24,7 @@ let _levels = [
 			[ OBJ_ROCK,        60, 25, 0.0, -0.005, 1e11 ],
 			[ OBJ_ROCKET,      80, 25, 0.0,  0.5,   1e9 ],
 		],
-		0.5, 10, 0,
+		0.5, 10, 0, 20,
 	],
 	
 	// first level
@@ -38,7 +38,7 @@ let _levels = [
 			[ OBJ_SATELLITE,  50, 20, 0.0, 0.5, 1e9 ],
 		],
 		
-		// stepSize, viewPad.x, viewPad.y
-		1, 50, 0,
+		// stepSize, viewPad.x, viewPad.y, victoryPointsGoal
+		1, 50, 0, 30,
 	],
 ];

@@ -74,6 +74,9 @@ class Game
 		
 		level = _levels[levelIndex];
 		
+		_stats.victoryPoints = 0;
+		_stats.victoryPointsGoal = level[4];
+		
 		this.system.bodies = [];
 		this.system.stepSize = _levels[levelIndex][1];
 		_gfx.pad.x = level[2];
@@ -85,13 +88,14 @@ class Game
 			
 			a = new GameObject(obj[0], "dummy", "#fff", new Vec2D(item[1], item[2]), new Vec2D(item[3], item[4]), item[5], obj[1]);
 			
-			if (obj[4])
+			if (obj[5])
 			{
 				a.pickable = false;
 				a.isBlackHole = true;
-				a.influenceDistance = obj[4];
+				a.influenceDistance = obj[5];
 			}
 			
+			a.victoryPoints = obj[4];
 			a.rotationBase = obj[2];
 			a.rotationFollowsTrajectory = obj[3];
 			
@@ -157,9 +161,29 @@ class Game
 		}
 	}
 	
+	handleDestroyedObjects()
+	{
+		let a;
+		
+		for (a of this.system.bodies)
+		{
+			if (!a.isDestroyed)
+			{
+				continue;
+			}
+			
+			_stats.victoryPoints += a.victoryPoints;
+			
+			console.log(_stats.victoryPoints, _stats.victoryPointsGoal);
+			
+			// TODO: add some effects?
+		}
+	}
+	
 	tick()
 	{
 		this.system.step();
+		this.handleDestroyedObjects();
 		this.system.cleanup();
 	}
 	
