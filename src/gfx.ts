@@ -236,7 +236,7 @@ class Gfx
 			this.ctx.font = _px(a.diameter) + "px twemoji";
 			
 			this.ctx.setTransform(1, 0, 0, 1, _x(a.position.x), _y(a.position.y));
-			// this.ctx.rotation()
+			this.ctx.rotate(a.rotation * Math.PI * 2);
 			this.ctx.fillText(a.icon, 0, 0);
 			
 			if (a.isBlackHole)
