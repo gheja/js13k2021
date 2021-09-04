@@ -18,6 +18,8 @@
 ## ui
 - [ ] black hole grows? only gfx? something else?
 - [ ] only draw drag line when dragging
+- [ ] status bar with date, etc.
+- [ ] tooltip
 
 ## gfx
 - [ ] background
