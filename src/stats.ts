@@ -3,5 +3,5 @@ let _stats = {
 	victoryPointsGoal: 0,
 	ticksPassed: 0,
 	correctionCount: 0,
-	correctionTotalSpeed: 0,
+	correctionTotalCost: 0,
 };

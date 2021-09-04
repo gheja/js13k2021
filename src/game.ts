@@ -1,14 +1,3 @@
-function applyDrag(obj: SystemObject, vector: Vec2D, log: boolean)
-{
-	obj.velocity.x += vector.x;
-	obj.velocity.y += vector.y;
-	
-	if (log)
-	{
-		_stats.correctionCount++;
-		_stats.correctionTotalSpeed += dist2d(new Vec2D(0, 0), vector);
-	}
-}
 
 class Game
 {
@@ -19,6 +8,7 @@ class Game
 	tooltip: string;
 	
 	currentDragVector: Vec2D;
+	currentDragVectorCost: number;
 	
 	constructor()
 	{
@@ -93,7 +83,7 @@ class Game
 			
 			if (a.picked)
 			{
-				applyDrag(b, this.currentDragVector, false);
+				this.applyDrag(b);
 			}
 			this.systemPrediction.addBody(b);
 		}
@@ -134,7 +124,7 @@ class Game
 		_stats.victoryPointsGoal = level[4];
 		_stats.ticksPassed = 0;
 		_stats.correctionCount = 0;
-		_stats.correctionTotalSpeed = 0;
+		_stats.correctionTotalCost = 0;
 		
 		this.system.bodies = [];
 		this.system.stepSize = _levels[levelIndex][1];
@@ -160,6 +150,12 @@ class Game
 			
 			this.system.addBody(a);
 		}
+	}
+	
+	applyDrag(obj: SystemObject)
+	{
+		obj.velocity.x += this.currentDragVector.x;
+		obj.velocity.y += this.currentDragVector.y;
 	}
 	
 	handleDrag()
@@ -189,6 +185,7 @@ class Game
 		}
 		
 		this.currentDragVector = new Vec2D((_cursorDownPosition.x - _cursorPosition.x) * DRAG_VECTOR_MULTIPLIER, (_cursorDownPosition.y - _cursorPosition.y) * DRAG_VECTOR_MULTIPLIER);
+		this.currentDragVectorCost = dist2d(new Vec2D(0, 0), this.currentDragVector) * 1000;
 		
 		// just released the picked object (if any)
 		if (this.lastCursorDown && !_cursorDown)
@@ -197,11 +194,16 @@ class Game
 			{
 				if (a.picked)
 				{
-					applyDrag(a, this.currentDragVector, true);
+					this.applyDrag(a);
+					
+					_stats.correctionCount++;
+					_stats.correctionTotalCost += this.currentDragVectorCost;
 				}
 				
 				a.picked = false;
 			}
+			
+			this.currentDragVectorCost = null;
 		}
 		
 		this.lastCursorDown = _cursorDown;
@@ -252,11 +254,21 @@ class Game
 	
 	updateStatus()
 	{
+		// _stats.correctionCount + " corrections (" + Math.floor(_stats.correctionTotalSpeed * 1000) + "f) " + " &#xb7; " +
 		this.setStatus(
-			_stats.correctionCount + " corrections (" + Math.floor(_stats.correctionTotalSpeed * 1000) + "f) " + " &#xb7; " +
+			_stats.correctionCount + " corrections (" + Math.floor(_stats.correctionTotalCost) + "f) " + " &#xb7; " +
 			_stats.victoryPoints + " / " + _stats.victoryPointsGoal + " &#xb7; " +
 			this.ticksToTime(_stats.ticksPassed)
 		);
+		
+		if (_cursorDown && this.currentDragVectorCost != null)
+		{
+			this.setTooltip("Correction cost: " + Math.floor(this.currentDragVectorCost) + "f");
+		}
+		else
+		{
+			this.setTooltip("");
+		}
 	}
 	
 	tick()
