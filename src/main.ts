@@ -89,4 +89,14 @@ function init()
 	onFrame();
 }
 
+function b1()
+{
+	_game.loadNextLevel();
+}
+
+function b2()
+{
+	_game.unpause();
+}
+
 window.addEventListener("load", init);

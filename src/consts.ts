@@ -7,3 +7,6 @@ const OBJ_SATELLITE = 2;
 const OBJ_BLACK_HOLE = 3;
 
 const DRAG_VECTOR_MULTIPLIER = 1/5000;
+
+const GAME_STATE_RUNNING = 1;
+const GAME_STATE_WON = 2;

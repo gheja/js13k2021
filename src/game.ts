@@ -1,6 +1,7 @@
 
 class Game
 {
+	gameState: number;
 	system: GravitySystem;
 	systemPrediction: GravitySystem;
 	lastCursorDown: boolean;
@@ -53,6 +54,13 @@ class Game
 			obj.innerHTML = s;
 			obj.dataset["s"] = s;
 		}
+	}
+	
+	unpause()
+	{
+		this.paused = false;
+		this.autopaused = false;
+		document.getElementById("overlay").style.display = "none";
 	}
 	
 	ticksToTime(n)
@@ -130,8 +138,7 @@ class Game
 		_stats.correctionCount = 0;
 		_stats.correctionTotalCost = 0;
 		
-		this.paused = false;
-		this.autopaused = false;
+		this.gameState = GAME_STATE_RUNNING;
 		this.system.bodies = [];
 		this.system.stepSize = _levels[levelIndex][1];
 		_gfx.pad.x = level[2];
@@ -156,6 +163,14 @@ class Game
 			
 			this.system.addBody(a);
 		}
+		
+		document.getElementById("next").style.display = "none";
+		this.unpause();
+	}
+	
+	loadNextLevel()
+	{
+		this.loadLevel(1);
 	}
 	
 	applyDrag(obj: SystemObject)
@@ -262,8 +277,10 @@ class Game
 	{
 		if (_stats.victoryPoints >= _stats.victoryPointsGoal)
 		{
+			document.getElementById("overlay").style.display = "block";
+			document.getElementById("next").style.display = "block";
 			this.paused = true;
-			console.log("congrats!");
+			this.gameState = GAME_STATE_WON;
 		}
 	}
 	
@@ -292,7 +309,11 @@ class Game
 		this.system.step();
 		this.handleDestroyedObjects();
 		this.system.cleanup();
-		this.checkWinLoseConditions();
+		
+		if (this.gameState == GAME_STATE_RUNNING)
+		{
+			this.checkWinLoseConditions();
+		}
 	}
 	
 	frame()

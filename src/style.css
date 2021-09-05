@@ -4,6 +4,8 @@ body
 	padding: 0;
 	margin: 0;
 	overscroll-behavior: none;
+	font-size: 20pt;
+	font-family: Arial;
 }
 
 #c1
@@ -19,7 +21,6 @@ body
 	top: 0.5em;
 	right: 0.5em;
 	color: #fffa;
-	font-size: 20pt;
 }
 
 #s2
@@ -47,7 +48,7 @@ body
 	left: 0;
 	bottom: 0;
 	right: 0;
-	font-size: 12pt;
+	font-size: 10pt;
 	height: 100px;
 	background: #0008;
 	color: #fff;
@@ -57,4 +58,50 @@ body
 @font-face {
 	font-family: 'twemoji';
 	src: url('twemoji.ttf');
+}
+
+#overlay
+{
+	backdrop-filter: blur(10px);
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	display: none;
+}
+
+#win
+{
+	position: fixed;
+	top: 20vh;
+	right: 30vw;
+	left: 30vw;
+	bottom: 20vh;
+	background: #fffa;
+	border-radius: 2em;
+}
+
+button
+{
+	font-size: 20pt;
+	border: none;
+	padding: 0.5em 1em;
+	background: #456;
+	border-radius: 0.5em;
+	color: #fff;
+	text-decoration: none;
+}
+
+button:hover
+{
+	background: #567;
+}
+
+#next
+{
+	position: fixed;
+	top: 0;
+	left: 0;
+	display: none;
 }
