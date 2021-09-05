@@ -9,6 +9,7 @@ class Game
 	autopaused: boolean;
 	autopauseEnabled: boolean;
 	tooltip: string;
+	currentLevelIndex: number;
 	
 	currentDragVector: Vec2D;
 	currentDragVectorCost: number;
@@ -130,6 +131,8 @@ class Game
 	{
 		let a, level, item, obj, data;
 		
+		this.currentLevelIndex = levelIndex;
+		
 		level = _levels[levelIndex];
 		
 		_stats.victoryPoints = 0;
@@ -170,7 +173,7 @@ class Game
 	
 	loadNextLevel()
 	{
-		this.loadLevel(1);
+		this.loadLevel(this.currentLevelIndex + 1);
 	}
 	
 	applyDrag(obj: SystemObject)
