@@ -3,6 +3,7 @@ html
 	font-family: Arial;
 	font-size: 1.5vw;
 	background: #112;
+	user-select: none;
 }
 
 body
