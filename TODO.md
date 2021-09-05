@@ -1,7 +1,7 @@
 # js13k2021
 
 ## general
-- [ ] time
+- [x] time
 - [ ] progress bar for black hole
 - [ ] pause
 - [ ] speed 0.5x, 1x, 2x, 5x
@@ -12,14 +12,22 @@
 - [x] rotation
 - [x] "rotation follows trajectory" toggle
 - [ ] logic to check objects that moved from their original orbit
-- [ ] win condition
+- [/] win condition
 - [ ] lose condition (if any)
 
 ## ui
 - [ ] black hole grows? only gfx? something else?
 - [ ] only draw drag line when dragging
-- [ ] status bar with date, etc.
-- [ ] tooltip
+- [x] status bar with date, etc.
+- [x] tooltip
+- [ ] prompt user to rotate phone
+- [ ] toolbar
+  - [ ] pause (unpauses autopause as well)
+  - [ ] speed 0.5x, 1x, 2x, 5x
+  - [ ] autopause enabled
+  - [ ] restart level
+  - [ ] next level
+- [ ] adaptive font size
 
 ## gfx
 - [ ] background
