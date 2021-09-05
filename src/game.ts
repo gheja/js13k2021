@@ -286,7 +286,6 @@ class Game
 	
 	updateStatus()
 	{
-		// _stats.correctionCount + " corrections (" + Math.floor(_stats.correctionTotalSpeed * 1000) + "f) " + " &#xb7; " +
 		this.setStatus(
 			_stats.correctionCount + " corrections (" + Math.floor(_stats.correctionTotalCost) + "f) " + " &#xb7; " +
 			_stats.victoryPoints + " / " + _stats.victoryPointsGoal + " &#xb7; " +
