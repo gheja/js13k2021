@@ -27,7 +27,7 @@
   - [ ] autopause enabled
   - [ ] restart level
   - [ ] next level
-- [ ] adaptive font size
+- [x] adaptive font size
 
 ## gfx
 - [ ] background
@@ -35,7 +35,7 @@
 - [ ] "falling into black hole" fade
 - [ ] dashed line for path
 - [ ] separate line for altered path preview
-- [ ] win screen
+- [x] win screen
 - [ ] transition
 
 ## elements
