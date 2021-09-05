@@ -289,20 +289,37 @@ class Game
 	
 	updateStatus()
 	{
+		let a;
+		
 		this.setStatus(
-			_stats.correctionCount + " corrections (" + Math.floor(_stats.correctionTotalCost) + "f) " + " &#xb7; " +
-			_stats.victoryPoints + " / " + _stats.victoryPointsGoal + " &#xb7; " +
+			_stats.correctionCount + " corrections (" + Math.floor(_stats.correctionTotalCost) + "f) " + TEXT_DIVIDER +
+			_stats.victoryPoints + " / " + _stats.victoryPointsGoal + TEXT_DIVIDER +
 			this.ticksToTime(_stats.ticksPassed)
 		);
 		
+		a = [];
+		
 		if (_cursorDown && this.currentDragVectorCost != null)
 		{
-			this.setTooltip("Correction cost: " + Math.floor(this.currentDragVectorCost) + "f");
+			a.push("Correction cost: " + Math.floor(this.currentDragVectorCost) + "f");
 		}
-		else
+		
+		if (this.gameState == GAME_STATE_WON)
 		{
-			this.setTooltip("");
+			a.push("Finished");
 		}
+		
+		if (this.paused)
+		{
+			a.push("Paused");
+		}
+		
+		if (this.autopaused)
+		{
+			a.push("Autopaused");
+		}
+		
+		this.setTooltip(a.join(TEXT_DIVIDER));
 	}
 	
 	tick()
