@@ -109,3 +109,24 @@ button:hover
 	left: 0;
 	display: none;
 }
+
+#r1
+{
+	position: fixed;
+	right: 1rem;
+	bottom: 1rem;
+	font-family: 'twemoji';
+	font-size: 10rem;
+	animation: r1 2s infinite;
+	opacity: 0;
+}
+@media (max-aspect-ratio: 1/1)
+{
+	@keyframes r1
+	{
+		0% { opacity: 0; transform: rotate(0deg); }
+		20% { opacity: 1; transform: rotate(0deg); }
+		70% { opacity: 1; transform: rotate(-90deg); }
+		90% { opacity: 0;  transform: rotate(-90deg); }
+	}
+}
