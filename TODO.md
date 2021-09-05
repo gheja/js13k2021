@@ -3,17 +3,18 @@
 ## general
 - [x] time
 - [ ] progress bar for black hole
-- [ ] pause
+- [x] pause
 - [ ] speed 0.5x, 1x, 2x, 5x
-- [ ] auto-pause toggle
-- [ ] full screen toggle
-- [ ] restart level
+- [x] auto-pause toggle
+- [x] full screen toggle
+- [x] restart level
 - [ ] drag from center of object, not cursorDownPosition
 - [x] rotation
 - [x] "rotation follows trajectory" toggle
 - [ ] logic to check objects that moved from their original orbit
 - [/] win condition
 - [ ] lose condition (if any)
+- [ ] use a multiplier for correction cost for bigger objects
 
 ## ui
 - [ ] black hole grows? only gfx? something else?
@@ -22,11 +23,11 @@
 - [x] tooltip
 - [ ] prompt user to rotate phone
 - [ ] toolbar
-  - [ ] pause (unpauses autopause as well)
+  - [x] pause (unpauses autopause as well)
   - [ ] speed 0.5x, 1x, 2x, 5x
   - [ ] autopause enabled
-  - [ ] restart level
-  - [ ] next level
+  - [x] restart level
+  - [x] next level
 - [x] adaptive font size
 
 ## gfx
