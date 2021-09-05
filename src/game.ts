@@ -176,6 +176,11 @@ class Game
 		this.loadLevel(this.currentLevelIndex + 1);
 	}
 	
+	restartLevel()
+	{
+		this.loadLevel(this.currentLevelIndex);
+	}
+	
 	applyDrag(obj: SystemObject)
 	{
 		obj.velocity.x += this.currentDragVector.x;
@@ -281,7 +286,7 @@ class Game
 		if (_stats.victoryPoints >= _stats.victoryPointsGoal)
 		{
 			document.getElementById("overlay").style.display = "block";
-			document.getElementById("next").style.display = "block";
+			document.getElementById("next").style.display = "";
 			this.paused = true;
 			this.gameState = GAME_STATE_WON;
 		}

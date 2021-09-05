@@ -45,6 +45,13 @@ body
 	bottom: 4rem;
 }
 
+#s3
+{
+	position: fixed;
+	left: 0.5rem;
+	bottom: 0.5rem;
+}
+
 #debug
 {
 	position: fixed;
@@ -100,14 +107,6 @@ button
 button:hover
 {
 	background: #567;
-}
-
-#next
-{
-	position: fixed;
-	top: 0;
-	left: 0;
-	display: none;
 }
 
 #r1

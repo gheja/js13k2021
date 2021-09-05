@@ -23,24 +23,34 @@
 		<div id="s1"></div>
 		<div id="s2"></div>
 		<div id="s3">
-			<button id="next" onclick="b1()">Next level &raquo;</button>
+			<button onclick="b1(1)">⤧</button>&nbsp;&nbsp;
+			<button onclick="b1(2)">||</button>
+			<button onclick="b1(3)">►</button>
+			<button onclick="b1(4)">►►</button>
+			<button onclick="b1(5)">►►►</button>&nbsp;&nbsp;
+<!--
+			<button onclick="b1(6)">►||</button>&nbsp;&nbsp;
+-->
+			<button onclick="b1(9)">⟲</button>
+			<button id="next" onclick="b1(7)">Next level &raquo;</button>
 		</div>
 		<div id="overlay">
 			<div id="win">
 				<b>Congrats!</b><br/>
 				You have completed the level.<br/>
 				<br/>
-				<button onclick="b2()">Stay here</button>
-				<button onclick="b1()">Next level &raquo;</button>
+				<button onclick="b1(8)">Stay here</button>
+				<button onclick="b1(7)">Next level &raquo;</button>
 			</div>
 		</div>
 		<div id="r1">📱</div>
 
+<!--
 <style type="text/css">
 #debug-controls
 {
 	position: fixed;
-	padding: 0.5em;
+	padding: 0.2em;
 	left: 0;
 	bottom: 0;
 	background: #0008;

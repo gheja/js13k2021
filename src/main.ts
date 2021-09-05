@@ -89,14 +89,38 @@ function init()
 	onFrame();
 }
 
-function b1()
+function b1(action: number)
 {
-	_game.loadNextLevel();
-}
-
-function b2()
-{
-	_game.unpause();
+	if (action == 1)
+	{
+		_gfx.toggleFullscreen();
+	}
+	else if (action == 2)
+	{
+		_game.paused = !_game.paused;
+	}
+/*	else if (action == 6)
+	{
+		_game.autopauseEnabled = !_game.autopauseEnabled;
+		target.classList.remove("on");
+		if (_game.autopauseEnabled)
+		{
+			target.classList.add("on");
+		}
+	}
+*/
+	else if (action == 7)
+	{
+		_game.loadNextLevel();
+	}
+	else if (action == 8)
+	{
+		_game.unpause();
+	}
+	else if (action == 9)
+	{
+		_game.restartLevel();
+	}
 }
 
 window.addEventListener("load", init);
