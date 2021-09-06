@@ -37,7 +37,6 @@ class Gfx
 	{
 		this.canvas = document.getElementById(id);
 		this.ctx = this.canvas.getContext("2d");
-		this.zoom = 10;
 		this.pad = new Vec2D(10, 10);
 		this.prerenderedStuffs = [];
 	}
@@ -50,6 +49,8 @@ class Gfx
 	resize()
 	{
 		let dpr, bsr;
+		
+		this.zoom = 10 * Math.min(window.innerWidth / 1920, window.innerHeight / 1080);
 		
 		dpr = window.devicePixelRatio || 1;
 		
