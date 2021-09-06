@@ -1,4 +1,3 @@
-
 class Game
 {
 	gameState: number;
