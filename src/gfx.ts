@@ -31,6 +31,7 @@ class Gfx
 	zoom: number;
 	pad: Vec2D;
 	pathGradient: CanvasGradient;
+	prerenderedStuffs: Array<canvas>;
 	
 	constructor(id: any)
 	{
@@ -38,6 +39,7 @@ class Gfx
 		this.ctx = this.canvas.getContext("2d");
 		this.zoom = 10;
 		this.pad = new Vec2D(10, 10);
+		this.prerenderedStuffs = [];
 	}
 	
 	zoomToFit()
@@ -222,6 +224,29 @@ class Gfx
 		}
 	}
 	
+	drawPrerendered(index, size)
+	{
+		let canvas, ctx;
+		
+		if (!this.prerenderedStuffs[index])
+		{
+			canvas = document.createElement("canvas");
+			canvas.width = PRERENDER_SIZE;
+			canvas.height = PRERENDER_SIZE;
+			
+			ctx = canvas.getContext("2d");
+			
+			ctx.font = (PRERENDER_SIZE * 0.95) + "px twemoji";
+			ctx.textAlign = "center";
+			ctx.textBaseline = "middle";
+			ctx.fillText(index, PRERENDER_SIZE / 2, PRERENDER_SIZE / 2);
+			
+			this.prerenderedStuffs[index] = canvas;
+		}
+		
+		this.ctx.drawImage(this.prerenderedStuffs[index], -_px(size)/2, -_px(size)/2, _px(size), _px(size));
+	}
+	
 	drawObjects(blackholes: boolean)
 	{
 		let a;
@@ -233,11 +258,9 @@ class Gfx
 				continue;
 			}
 			
-			this.ctx.font = _px(a.diameter) + "px twemoji";
-			
 			this.ctx.setTransform(1, 0, 0, 1, _x(a.position.x), _y(a.position.y));
 			this.ctx.rotate(a.rotation * Math.PI * 2);
-			this.ctx.fillText(a.icon, 0, 0);
+			this.drawPrerendered(a.icon, a.diameter);
 			
 			if (a.isBlackHole)
 			{
