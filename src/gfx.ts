@@ -187,9 +187,14 @@ class Gfx
 		this.ctx.setTransform(1, 0, 0, 1, 0, 0);
 	}
 	
-	drawBar(x, y, min, max, value, color)
+	drawBar(x, y, min, max, value, color, goal)
 	{
 		const width = 40;
+		
+		if (goal == null)
+		{
+			goal = max;
+		}
 		
 		this.ctx.setTransform(1, 0, 0, 1, _px(x), _px(y));
 		this.ctx.lineCap = "round";
@@ -201,11 +206,18 @@ class Gfx
 		this.ctx.lineTo(_px(width), 0);
 		this.ctx.stroke();
 		
-		this.ctx.strokeStyle = "#444";
+		this.ctx.strokeStyle = "#777";
 		this.ctx.lineWidth = _px(3);
 		this.ctx.beginPath();
 		this.ctx.moveTo(0, 0);
 		this.ctx.lineTo(_px(width), 0);
+		this.ctx.stroke();
+		
+		this.ctx.strokeStyle = "#444";
+		this.ctx.lineWidth = _px(3);
+		this.ctx.beginPath();
+		this.ctx.moveTo(0, 0);
+		this.ctx.lineTo(_px(width * ((goal - min) / (max - min))), 0);
 		this.ctx.stroke();
 		
 		if (value > min)
@@ -332,6 +344,7 @@ class Gfx
 		this.drawObjects(false);
 		
 		this.drawBar(2, 4, 0, _game.correctionBalanceMax, _game.correctionBalance - _game.currentDragVectorCost, "#eb0")
+		this.drawBar(48, 4, 0, _stats.victoryPointsMax, _stats.victoryPoints, "#c07", _stats.victoryPointsGoal);
 		// this.drawBar(48, 4, 0, 100, 70, "#08c");
 		// this.drawBar(94, 4, 0, 100, 70 "#4d2");
 	}
