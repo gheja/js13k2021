@@ -139,6 +139,7 @@ class Game
 		level = _levels[levelIndex];
 		
 		_stats.victoryPoints = 0;
+		_stats.victoryPointsMax = 0;
 		_stats.victoryPointsGoal = level[4];
 		_stats.ticksPassed = 0;
 		_stats.correctionCount = 0;
@@ -168,6 +169,8 @@ class Game
 			a.victoryPoints = obj[4];
 			a.rotationBase = obj[2];
 			a.rotationFollowsTrajectory = obj[3];
+			
+			_stats.victoryPointsMax += obj[4];
 			
 			this.system.addBody(a);
 		}
