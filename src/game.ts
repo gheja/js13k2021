@@ -355,7 +355,7 @@ class Game
 		this.handleDestroyedObjects();
 		this.system.cleanup();
 		
-		this.correctionBalance = Math.min(this.correctionBalance + 5, this.correctionBalanceMax);
+		this.correctionBalance = Math.min(this.correctionBalance + 3, this.correctionBalanceMax);
 		
 		if (this.gameState == GAME_STATE_RUNNING)
 		{
