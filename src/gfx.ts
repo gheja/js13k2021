@@ -247,7 +247,7 @@ class Gfx
 	{
 		if (_game.currentDragPicked)
 		{
-			this.ctx.strokeStyle = "#ff4";
+			this.ctx.strokeStyle = "#eb0";
 			this.ctx.lineWidth = _px(0.3);
 			
 			this.ctx.beginPath();
