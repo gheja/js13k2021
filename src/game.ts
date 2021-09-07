@@ -227,7 +227,7 @@ class Game
 		
 		if (this.currentDragPicked)
 		{
-			this.currentDragVector = new Vec2D((_cursorDownPosition.x - _cursorPosition.x) * DRAG_VECTOR_MULTIPLIER, (_cursorDownPosition.y - _cursorPosition.y) * DRAG_VECTOR_MULTIPLIER);
+			this.currentDragVector = new Vec2D(_ipx(_cursorDownPosition.x - _cursorPosition.x) * DRAG_VECTOR_MULTIPLIER, _ipx(_cursorDownPosition.y - _cursorPosition.y) * DRAG_VECTOR_MULTIPLIER);
 		}
 		else
 		{

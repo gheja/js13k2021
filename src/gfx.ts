@@ -13,6 +13,11 @@ function _px(a)
 	return a *_gfx.pixelRatio * _gfx.zoom;
 }
 
+function _ipx(a)
+{
+	return a / _gfx.zoom;
+}
+
 function _pulsate(length: number, offset: number)
 {
 	return Math.cos((performance.now() + offset) / length * Math.PI * 2);
