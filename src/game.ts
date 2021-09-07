@@ -12,6 +12,8 @@ class Game
 	
 	currentDragVector: Vec2D;
 	currentDragVectorCost: number;
+	correctionBalance: number;
+	correctionBalanceMax: number;
 	
 	constructor()
 	{
@@ -143,6 +145,8 @@ class Game
 		this.gameState = GAME_STATE_RUNNING;
 		this.system.bodies = [];
 		this.system.stepSize = _levels[levelIndex][1];
+		this.correctionBalance = 0;
+		this.correctionBalanceMax = 200;
 		_gfx.pad.x = level[2];
 		_gfx.pad.y = level[3];
 		
@@ -231,6 +235,7 @@ class Game
 					
 					_stats.correctionCount++;
 					_stats.correctionTotalCost += this.currentDragVectorCost;
+					this.correctionBalance -= this.currentDragVectorCost;
 				}
 				
 				a.picked = false;
@@ -241,6 +246,11 @@ class Game
 			{
 				this.autopaused = false;
 			}
+		}
+		
+		if (!_cursorDown)
+		{
+			this.currentDragVectorCost = 0;
 		}
 		
 		this.lastCursorDown = _cursorDown;
@@ -332,6 +342,8 @@ class Game
 		this.system.step();
 		this.handleDestroyedObjects();
 		this.system.cleanup();
+		
+		this.correctionBalance = Math.min(this.correctionBalance + 5, this.correctionBalanceMax);
 		
 		if (this.gameState == GAME_STATE_RUNNING)
 		{
