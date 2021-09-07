@@ -325,5 +325,9 @@ class Gfx
 		this.drawPredictedPaths();
 		this.drawDrag();
 		this.drawObjects(false);
+		
+		this.drawBar(2, 4, 0, _game.correctionBalanceMax, _game.correctionBalance - _game.currentDragVectorCost, "#eb0")
+		// this.drawBar(48, 4, 0, 100, 70, "#08c");
+		// this.drawBar(94, 4, 0, 100, 70 "#4d2");
 	}
 }
