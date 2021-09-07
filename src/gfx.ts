@@ -186,7 +186,7 @@ class Gfx
 	{
 		const width = 40;
 		
-		this.ctx.setTransform(1, 0, 0, 1, _x(x), _y(y));
+		this.ctx.setTransform(1, 0, 0, 1, _px(x), _px(y));
 		this.ctx.lineCap = "round";
 		
 		this.ctx.strokeStyle = "#eee";
