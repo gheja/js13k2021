@@ -10,6 +10,7 @@ class Game
 	tooltip: string;
 	currentLevelIndex: number;
 	
+	currentDragPicked: boolean;
 	currentDragVector: Vec2D;
 	currentDragVectorCost: number;
 	correctionBalance: number;
@@ -23,6 +24,7 @@ class Game
 		this.paused = false;
 		this.autopaused = false;
 		this.autopauseEnabled = true;
+		this.currentDragPicked = false;
 		this.setTooltip("");
 	}
 	
@@ -197,6 +199,7 @@ class Game
 		// just picked an object
 		if (!this.lastCursorDown && _cursorDown)
 		{
+			this.currentDragPicked = false;
 			
 			for (a of this.system.bodies)
 			{
@@ -210,6 +213,7 @@ class Game
 					if (dist2d(new Vec2D(_x(a.position.x) / _gfx.pixelRatio, _y(a.position.y) / _gfx.pixelRatio), _cursorDownPosition) < 50)
 					{
 						a.picked = true;
+						this.currentDragPicked = true;
 						break;
 					}
 				}
@@ -221,7 +225,15 @@ class Game
 			}
 		}
 		
-		this.currentDragVector = new Vec2D((_cursorDownPosition.x - _cursorPosition.x) * DRAG_VECTOR_MULTIPLIER, (_cursorDownPosition.y - _cursorPosition.y) * DRAG_VECTOR_MULTIPLIER);
+		if (this.currentDragPicked)
+		{
+			this.currentDragVector = new Vec2D((_cursorDownPosition.x - _cursorPosition.x) * DRAG_VECTOR_MULTIPLIER, (_cursorDownPosition.y - _cursorPosition.y) * DRAG_VECTOR_MULTIPLIER);
+		}
+		else
+		{
+			this.currentDragVector = new Vec2D(0, 0);
+		}
+		
 		this.currentDragVectorCost = dist2d(new Vec2D(0, 0), this.currentDragVector) * 1000;
 		
 		// just released the picked object (if any)
@@ -241,16 +253,13 @@ class Game
 				a.picked = false;
 			}
 			
-			this.currentDragVectorCost = null;
+			this.currentDragPicked = false;
+			this.currentDragVectorCost = 0;
+			
 			if (this.autopauseEnabled)
 			{
 				this.autopaused = false;
 			}
-		}
-		
-		if (!_cursorDown)
-		{
-			this.currentDragVectorCost = 0;
 		}
 		
 		this.lastCursorDown = _cursorDown;
