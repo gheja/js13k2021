@@ -182,6 +182,38 @@ class Gfx
 		this.ctx.setTransform(1, 0, 0, 1, 0, 0);
 	}
 	
+	drawBar(x, y, min, max, value, color)
+	{
+		const width = 40;
+		
+		this.ctx.setTransform(1, 0, 0, 1, _x(x), _y(y));
+		this.ctx.lineCap = "round";
+		
+		this.ctx.strokeStyle = "#eee";
+		this.ctx.lineWidth = _px(4);
+		this.ctx.beginPath();
+		this.ctx.moveTo(0, 0);
+		this.ctx.lineTo(_px(width), 0);
+		this.ctx.stroke();
+		
+		this.ctx.strokeStyle = "#444";
+		this.ctx.lineWidth = _px(3);
+		this.ctx.beginPath();
+		this.ctx.moveTo(0, 0);
+		this.ctx.lineTo(_px(width), 0);
+		this.ctx.stroke();
+		
+		if (value > min)
+		{
+			this.ctx.strokeStyle = color;
+			this.ctx.lineWidth = _px(2.25);
+			this.ctx.beginPath();
+			this.ctx.moveTo(0, 0);
+			this.ctx.lineTo(_px(width * ((value - min) / (max - min))), 0);
+			this.ctx.stroke();
+		}
+	}
+	
 	drawPredictedPaths()
 	{
 		let a, b;
@@ -287,6 +319,7 @@ class Gfx
 		this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
 		this.ctx.textAlign = "center";
 		this.ctx.textBaseline = "middle";
+		this.ctx.lineCap = "butt";
 		
 		this.drawObjects(true);
 		this.drawPredictedPaths();
