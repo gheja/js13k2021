@@ -199,6 +199,10 @@ class Game
 	{
 		let a;
 		
+		// TODO: in case only one object can be picked: rework this to
+		// have a pickedObject. currentDragPicked would be no longer
+		// needed, neither looping through the bodies.
+		
 		// just picked an object
 		if (!this.lastCursorDown && _cursorDown)
 		{
