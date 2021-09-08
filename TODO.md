@@ -16,6 +16,7 @@
 - [ ] lose condition (if any)
 - [ ] use a multiplier for correction cost for bigger objects
 - [ ] limit drag to avaiable correction budget
+- [ ] levels should include zoom too
 
 ## ui
 - [ ] black hole grows? only gfx? something else?
@@ -30,6 +31,7 @@
   - [x] restart level
   - [x] next level
 - [x] adaptive font size
+- [ ] pad the screen to the middle
 
 ## gfx
 - [ ] background
