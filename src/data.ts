@@ -3,7 +3,7 @@ let _objectDefinitions = [
 	[ "🌑",  5, 0,     false, 10 ],     // OBJ_ROCK = 0
 	[ "🚀",  5, 0.125, true,  20 ],     // OBJ_ROCKET
 	[ "🛰️",  5, 0.125, true,  10 ],     // OBJ_SATELLITE
-	[ "🌑", 20, 0,     false,  0, 40 ], // OBJ_BLACK_HOLE
+	[ "x", 30, 0,     false,  0, 40 ], // OBJ_BLACK_HOLE
 ];
 
 let _levels = [

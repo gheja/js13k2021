@@ -100,7 +100,8 @@ class GravitySystem
 				
 				if (b.isBlackHole && !a.isBlackHole)
 				{
-					if (dist2d(a.position, b.position) < (b.diameter/2 - a.diameter/2))
+					// if (dist2d(a.position, b.position) < (b.diameter/2 - a.diameter/2))
+					if (dist2d(a.position, b.position) < (b.diameter/2 - a.diameter * 1.5))
 					{
 						a.isDestroyed = true;
 					}

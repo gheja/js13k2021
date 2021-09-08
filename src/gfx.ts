@@ -44,6 +44,7 @@ class Gfx
 		this.ctx = this.canvas.getContext("2d");
 		this.pad = new Vec2D(10, 10);
 		this.prerenderedStuffs = [];
+		this.initPrerendered();
 	}
 	
 	zoomToFit()
@@ -295,6 +296,41 @@ class Gfx
 		}
 		
 		this.ctx.drawImage(this.prerenderedStuffs[index], -_px(size)/2, -_px(size)/2, _px(size), _px(size));
+	}
+	
+	initPrerendered()
+	{
+		let canvas, ctx, index, c, size;
+		
+		index = "x"
+		if (!this.prerenderedStuffs[index])
+		{
+			canvas = document.createElement("canvas");
+			canvas.width = PRERENDER_SIZE;
+			canvas.height = PRERENDER_SIZE;
+			
+			this.prerenderedStuffs[index] = canvas;
+		}
+		else
+		{
+			canvas = this.prerenderedStuffs[index];
+		}
+		
+		ctx = canvas.getContext("2d");
+		
+		ctx.setTransform(1, 0, 0, 1, PRERENDER_SIZE / 2, PRERENDER_SIZE / 2);
+		
+		size = PRERENDER_SIZE * 0.45;
+		
+		for (c of [ "#c07", "#f09", "#f44" "#f81" "#fc5" "#ffa", "#fff", "#000", "#111", "#000" ])
+		{
+			ctx.fillStyle = c;
+			ctx.beginPath();
+			ctx.arc(0, 0, size, 0, Math.PI * 2);
+			ctx.fill();
+			
+			size *= 0.96;
+		}
 	}
 	
 	drawObjects(blackholes: boolean)
