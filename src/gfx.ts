@@ -56,7 +56,7 @@ class Gfx
 	{
 		let dpr, bsr;
 		
-		this.zoom = 10 * Math.min(window.innerWidth / 1920, window.innerHeight / 1080);
+		this.zoom = Math.min(window.innerWidth / LEVEL_WIDTH, window.innerHeight / LEVEL_HEIGHT);
 		
 		dpr = window.devicePixelRatio || 1;
 		

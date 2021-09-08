@@ -3,6 +3,9 @@ const gravConst = 6.67430e-11;
 
 const PRERENDER_SIZE = 800;
 
+const LEVEL_WIDTH = 190;
+const LEVEL_HEIGHT = 90;
+
 const OBJ_ROCK = 0;
 const OBJ_ROCKET = 1;
 const OBJ_SATELLITE = 2;
