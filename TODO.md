@@ -46,6 +46,9 @@
 ## elements
 - [ ] goo to slow down
 - [ ] thing that should not be destroyed
+  - [ ] space dog
+  - [ ] red guy
+  - [ ] space invader
 - [ ] thing that should be destroyed last
 - [ ] powerups
 - [ ] sentinels with viewing cone
