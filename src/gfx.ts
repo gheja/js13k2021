@@ -347,7 +347,7 @@ class Gfx
 			this.ctx.setTransform(1, 0, 0, 1, _x(a.position.x), _y(a.position.y));
 			this.ctx.rotate(a.rotation * Math.PI * 2);
 			this.drawPrerendered(a.icon, a.diameter);
-			
+/*
 			if (a.isBlackHole)
 			{
 				let n;
@@ -361,6 +361,7 @@ class Gfx
 				this.ctx.arc(0, 0, _px(a.influenceDistance * (0.5 * (1 + n*0.1))), 0, Math.PI * 2);
 				this.ctx.stroke();
 			}
+*/
 		}
 		
 		this.ctx.setTransform(1, 0, 0, 1, 0, 0);
