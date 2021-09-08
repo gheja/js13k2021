@@ -15,13 +15,14 @@
 - [/] win condition
 - [ ] lose condition (if any)
 - [ ] use a multiplier for correction cost for bigger objects
+- [ ] limit drag to avaiable correction budget
 
 ## ui
 - [ ] black hole grows? only gfx? something else?
 - [ ] only draw drag line when dragging
 - [x] status bar with date, etc.
 - [x] tooltip
-- [ ] prompt user to rotate phone
+- [x] prompt user to rotate phone
 - [ ] toolbar
   - [x] pause (unpauses autopause as well)
   - [ ] speed 0.5x, 1x, 2x, 5x
@@ -38,6 +39,7 @@
 - [ ] separate line for altered path preview
 - [x] win screen
 - [ ] transition
+- [ ] black hole
 
 ## elements
 - [ ] goo to slow down
@@ -58,3 +60,6 @@
 - [ ] character sequences instead of emojis for emojis?
 - [ ] radius instead of diameter
 - [ ] pre-rendered images instead of emojis? (when devicePixelRatio != 1 custom emojis might fail)
+
+## reducing size
+- [ ] remove one of the directions in "prompt user to rotate phone"
