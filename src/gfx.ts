@@ -367,6 +367,21 @@ class Gfx
 		this.ctx.setTransform(1, 0, 0, 1, 0, 0);
 	}
 	
+	drawBoundaries()
+	{
+		this.ctx.setTransform(1, 0, 0, 1, 0, 0);
+		this.ctx.lineWidth = _px(0.3);
+		
+		this.ctx.strokeStyle = "#fff3";
+		this.ctx.beginPath();
+		this.ctx.rect(_x(0), _y(0), _x(LEVEL_WIDTH), _y(LEVEL_HEIGHT));
+		this.ctx.stroke();
+		
+		this.ctx.strokeStyle = "#ff43";
+		this.ctx.beginPath();
+		this.ctx.rect(_x(10), _y(10), _x(LEVEL_WIDTH - 20), _y(LEVEL_HEIGHT - 20));
+		this.ctx.stroke();
+	}
 	draw()
 	{
 		this.ctx.setTransform(1, 0, 0, 1, 0, 0);
@@ -384,5 +399,7 @@ class Gfx
 		this.drawBar(48, 4, 0, _stats.victoryPointsMax, _stats.victoryPoints, "#c07", _stats.victoryPointsGoal);
 		// this.drawBar(48, 4, 0, 100, 70, "#08c");
 		// this.drawBar(94, 4, 0, 100, 70 "#4d2");
+		
+		this.drawBoundaries();
 	}
 }
