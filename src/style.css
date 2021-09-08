@@ -116,7 +116,7 @@ button:hover
 	bottom: 1rem;
 	font-family: 'twemoji';
 	font-size: 10rem;
-	animation: r1 2s infinite;
+	animation: r1 4s infinite;
 	opacity: 0;
 }
 @media (max-aspect-ratio: 1/1)
@@ -124,8 +124,12 @@ button:hover
 	@keyframes r1
 	{
 		0% { opacity: 0; transform: rotate(0deg); }
-		20% { opacity: 1; transform: rotate(0deg); }
-		70% { opacity: 1; transform: rotate(-90deg); }
-		90% { opacity: 0;  transform: rotate(-90deg); }
+		10% { opacity: 1; transform: rotate(0deg); }
+		35% { opacity: 1; transform: rotate(-90deg); }
+		45% { opacity: 0;  transform: rotate(-90deg); }
+		50% { opacity: 0; transform: rotate(0deg); }
+		60% { opacity: 1; transform: rotate(0deg); }
+		85% { opacity: 1; transform: rotate(90deg); }
+		95% { opacity: 0;  transform: rotate(90deg); }
 	}
 }
