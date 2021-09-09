@@ -140,7 +140,7 @@ class Game
 		
 		_stats.victoryPoints = 0;
 		_stats.victoryPointsMax = 0;
-		_stats.victoryPointsGoal = level[4];
+		_stats.victoryPointsGoal = level[5];
 		_stats.ticksPassed = 0;
 		_stats.correctionCount = 0;
 		_stats.correctionTotalCost = 0;
