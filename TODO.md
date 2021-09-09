@@ -4,7 +4,7 @@
 - [x] time
 - [ ] progress bar for black hole
 - [x] pause
-- [ ] speed 0.5x, 1x, 2x, 5x
+- [-] speed 0.5x, 1x, 2x, 5x
 - [x] auto-pause toggle
 - [x] full screen toggle
 - [x] restart level
@@ -12,36 +12,36 @@
 - [x] rotation
 - [x] "rotation follows trajectory" toggle
 - [ ] logic to check objects that moved from their original orbit
-- [/] win condition
+- [x] win condition
 - [ ] lose condition (if any)
 - [ ] use a multiplier for correction cost for bigger objects
 - [ ] limit drag to avaiable correction budget
-- [ ] levels should include zoom too
+- [x] levels should include zoom too
 
 ## ui
 - [ ] black hole grows? only gfx? something else?
-- [ ] only draw drag line when dragging
+- [x] only draw drag line when dragging
 - [x] status bar with date, etc.
 - [x] tooltip
 - [x] prompt user to rotate phone
 - [ ] toolbar
   - [x] pause (unpauses autopause as well)
-  - [ ] speed 0.5x, 1x, 2x, 5x
-  - [ ] autopause enabled
+  - [-] speed 0.5x, 1x, 2x, 5x
+  - [-] autopause enabled
   - [x] restart level
   - [x] next level
 - [x] adaptive font size
-- [ ] pad the screen to the middle
+- [-] pad the screen to the middle
 
 ## gfx
 - [ ] background
 - [ ] sticky
 - [ ] "falling into black hole" fade
 - [ ] dashed line for path
-- [ ] separate line for altered path preview
+- [-] separate line for altered path preview
 - [x] win screen
 - [ ] transition
-- [ ] black hole
+- [x] black hole
 
 ## elements
 - [ ] goo to slow down
