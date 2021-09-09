@@ -150,8 +150,9 @@ class Game
 		this.system.stepSize = _levels[levelIndex][1];
 		this.correctionBalance = 0;
 		this.correctionBalanceMax = 200;
-		_gfx.pad.x = level[2];
-		_gfx.pad.y = level[3];
+		_gfx.levelPad.x = level[2];
+		_gfx.levelPad.y = level[3];
+		_gfx.levelZoom = level[4];
 		
 		for (item of level[0])
 		{
@@ -176,6 +177,10 @@ class Game
 		}
 		
 		document.getElementById("next").style.display = "none";
+		
+		// update zoom and other parameters
+		_gfx.resize();
+		
 		this.unpause();
 	}
 	

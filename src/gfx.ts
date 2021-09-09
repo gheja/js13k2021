@@ -1,16 +1,31 @@
+function _uix(a)
+{
+	return (a + _gfx.pad.x + _gfx.levelPad.x) *_gfx.pixelRatio * _gfx.zoom;
+}
+
+function _uiy(a)
+{
+	return (a + _gfx.pad.y + _gfx.levelPad.y) *_gfx.pixelRatio * _gfx.zoom;
+}
+
+function _uipx(a)
+{
+	return a *_gfx.pixelRatio * _gfx.zoom;
+}
+
 function _x(a)
 {
-	return (a + _gfx.pad.x) *_gfx.pixelRatio * _gfx.zoom;
+	return (a + _gfx.pad.x + _gfx.levelPad.x) *_gfx.pixelRatio * _gfx.zoom * _gfx.levelZoom;
 }
 
 function _y(a)
 {
-	return (a + _gfx.pad.y) *_gfx.pixelRatio * _gfx.zoom;
+	return (a + _gfx.pad.y + _gfx.levelPad.y) *_gfx.pixelRatio * _gfx.zoom * _gfx.levelZoom;
 }
 
 function _px(a)
 {
-	return a *_gfx.pixelRatio * _gfx.zoom;
+	return a *_gfx.pixelRatio * _gfx.zoom * _gfx.levelZoom;
 }
 
 function _ipx(a)
@@ -38,13 +53,19 @@ class Gfx
 	pathGradient: CanvasGradient;
 	prerenderedStuffs: Array<canvas>;
 	
+	levelPad: Vec2D;
+	levelZoom: number;
+	
 	constructor(id: any)
 	{
 		this.canvas = document.getElementById(id);
 		this.ctx = this.canvas.getContext("2d");
-		this.pad = new Vec2D(10, 10);
+		this.pad = new Vec2D(0, 0);
 		this.prerenderedStuffs = [];
 		this.initPrerendered();
+		
+		this.levelPad = new Vec2D(0, 0);
+		this.levelZoom = 1;
 	}
 	
 	zoomToFit()
@@ -197,37 +218,37 @@ class Gfx
 			goal = max;
 		}
 		
-		this.ctx.setTransform(1, 0, 0, 1, _px(x), _px(y));
+		this.ctx.setTransform(1, 0, 0, 1, _uipx(x), _uipx(y));
 		this.ctx.lineCap = "round";
 		
 		this.ctx.strokeStyle = "#eee";
-		this.ctx.lineWidth = _px(4);
+		this.ctx.lineWidth = _uipx(4);
 		this.ctx.beginPath();
 		this.ctx.moveTo(0, 0);
-		this.ctx.lineTo(_px(width), 0);
+		this.ctx.lineTo(_uipx(width), 0);
 		this.ctx.stroke();
 		
 		this.ctx.strokeStyle = "#777";
-		this.ctx.lineWidth = _px(3);
+		this.ctx.lineWidth = _uipx(3);
 		this.ctx.beginPath();
 		this.ctx.moveTo(0, 0);
-		this.ctx.lineTo(_px(width), 0);
+		this.ctx.lineTo(_uipx(width), 0);
 		this.ctx.stroke();
 		
 		this.ctx.strokeStyle = "#444";
-		this.ctx.lineWidth = _px(3);
+		this.ctx.lineWidth = _uipx(3);
 		this.ctx.beginPath();
 		this.ctx.moveTo(0, 0);
-		this.ctx.lineTo(_px(width * ((goal - min) / (max - min))), 0);
+		this.ctx.lineTo(_uipx(width * ((goal - min) / (max - min))), 0);
 		this.ctx.stroke();
 		
 		if (value > min)
 		{
 			this.ctx.strokeStyle = color;
-			this.ctx.lineWidth = _px(2.25);
+			this.ctx.lineWidth = _uipx(2.25);
 			this.ctx.beginPath();
 			this.ctx.moveTo(0, 0);
-			this.ctx.lineTo(_px(width * ((value - min) / (max - min))), 0);
+			this.ctx.lineTo(_uipx(width * ((value - min) / (max - min))), 0);
 			this.ctx.stroke();
 		}
 	}
