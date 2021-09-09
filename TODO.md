@@ -4,7 +4,7 @@
 - [x] time
 - [ ] progress bar for black hole
 - [x] pause
-- [-] speed 0.5x, 1x, 2x, 5x
+- [ ] ~~speed 0.5x, 1x, 2x, 5x~~
 - [x] auto-pause toggle
 - [x] full screen toggle
 - [x] restart level
@@ -26,8 +26,8 @@
 - [x] prompt user to rotate phone
 - [ ] toolbar
   - [x] pause (unpauses autopause as well)
-  - [-] speed 0.5x, 1x, 2x, 5x
-  - [-] autopause enabled
+  - [ ] ~~speed 0.5x, 1x, 2x, 5x~~
+  - [ ] ~~autopause enabled~~
   - [x] restart level
   - [x] next level
 - [x] adaptive font size
@@ -38,7 +38,7 @@
 - [ ] sticky
 - [ ] "falling into black hole" fade
 - [ ] dashed line for path
-- [-] separate line for altered path preview
+- [ ] ~~separate line for altered path preview~~
 - [x] win screen
 - [ ] transition
 - [x] black hole
