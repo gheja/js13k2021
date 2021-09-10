@@ -35,6 +35,7 @@
 
 ## gfx
 - [ ] background
+- [ ] more background palettes
 - [ ] sticky
 - [ ] "falling into black hole" fade
 - [ ] dashed line for path
