@@ -1,6 +1,8 @@
 // Gravitational constant, see: https://en.wikipedia.org/wiki/Gravitational_constant
 const gravConst = 6.67430e-11;
 
+const TICKS_PER_SECOND = 60;
+
 const PRERENDER_SIZE = 800;
 
 const LEVEL_WIDTH = 190;

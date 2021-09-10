@@ -16,6 +16,8 @@ class Game
 	correctionBalance: number;
 	correctionBalanceMax: number;
 	
+	lastFrameTime: number;
+	
 	constructor()
 	{
 		this.system = new GravitySystem();
@@ -26,6 +28,7 @@ class Game
 		this.autopauseEnabled = true;
 		this.currentDragPicked = false;
 		this.setTooltip("");
+		this.lastFrameTime = performance.now();
 	}
 	
 	setTooltip(s)
@@ -376,12 +379,23 @@ class Game
 	
 	frame()
 	{
+		let now;
+		
+		now = performance.now();
+		
 		this.handleDrag();
 		
 		if (!this.paused && !this.autopaused)
 		{
-			// TODO: tick() need to be independent of frame()
-			this.tick();
+			while (this.lastFrameTime < now)
+			{
+				this.tick();
+				this.lastFrameTime += 1000 / TICKS_PER_SECOND;
+			}
+		}
+		else
+		{
+			this.lastFrameTime = now;
 		}
 		
 		this.updateStatus();
