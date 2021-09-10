@@ -115,7 +115,7 @@ class BackgroundGfx
 		let a: number;
 		let zoom: number;
 		
-		zoom = Math.ceil(Math.max(window.innerWidth / NOISE_RESOLUTION, window.innerHeight / NOISE_RESOLUTION));
+		zoom = Math.max(window.innerWidth / NOISE_RESOLUTION, window.innerHeight / NOISE_RESOLUTION);
 		
 		a = NOISE_RESOLUTION * zoom;
 		
