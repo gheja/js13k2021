@@ -17,3 +17,13 @@ function clamp(min: number, max: number, x: number)
 {
 	return Math.min(Math.max(x, min), max);
 }
+
+function randFloat()
+{
+	return Math.random();
+}
+
+function randPlusMinus(x)
+{
+	return (randFloat() - 0.5) * x * 2;
+}
