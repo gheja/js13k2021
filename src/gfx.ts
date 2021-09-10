@@ -103,7 +103,7 @@ class Gfx
 		gradient = this.ctx.createLinearGradient(0, 0, this.canvas.width, 0);
 		gradient.addColorStop(0.0, "#f0f");
 		gradient.addColorStop(0.5, "#03f");
-		gradient.addColorStop(1.0, "#0f3");
+		gradient.addColorStop(1.0, "#d61");
 		
 		this.pathGradient = gradient;
 	}
