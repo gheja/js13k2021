@@ -421,6 +421,6 @@ class Gfx
 		// this.drawBar(48, 4, 0, 100, 70, "#08c");
 		// this.drawBar(94, 4, 0, 100, 70 "#4d2");
 		
-		this.drawBoundaries();
+		// this.drawBoundaries();
 	}
 }
