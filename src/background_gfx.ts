@@ -139,11 +139,21 @@ class BackgroundGfx
 	
 	run()
 	{
+		let colorSets, colorSet;
+		
 		this.ctx.clearRect(0, 0, NOISE_RESOLUTION, NOISE_RESOLUTION);
 		this.ctx.globalCompositeOperation = "screen";
 		
-		this.ctx.drawImage(this.getNoiseLayer(3, [ 120, 0, 120 ]), 0, 0);
-		this.ctx.drawImage(this.getNoiseLayer(2, [ 0, 128, 255 ]), 0, 0);
-		this.ctx.drawImage(this.getNoiseLayer(3, [ 255, 120, 0 ]), 0, 0);
+		colorSets = [
+			[ [ 120, 0, 120 ], [ 0, 128, 255 ], [ 255, 120, 0 ] ],
+			[ [ 255, 30, 20 ], [ 0, 128, 255 ], [ 255, 120, 0 ] ],
+			[ [ 0, 180, 140 ], [ 0, 128, 255 ], [ 255, 180, 0 ] ],
+		];
+		
+		colorSet = arrayPick(colorSets);
+		
+		this.ctx.drawImage(this.getNoiseLayer(3, colorSet[0]), 0, 0);
+		this.ctx.drawImage(this.getNoiseLayer(2, colorSet[1]), 0, 0);
+		this.ctx.drawImage(this.getNoiseLayer(3, colorSet[2]), 0, 0);
 	}
 }
