@@ -2,7 +2,7 @@
 
 ## general
 - [x] time
-- [ ] progress bar for black hole
+- [x] progress bar for black hole
 - [x] pause
 - [ ] ~~speed 0.5x, 1x, 2x, 5x~~
 - [x] auto-pause toggle
@@ -17,6 +17,8 @@
 - [ ] use a multiplier for correction cost for bigger objects
 - [ ] limit drag to avaiable correction budget
 - [x] levels should include zoom too
+- [ ] tutorial
+- [ ] win screen summary
 
 ## ui
 - [ ] black hole grows? only gfx? something else?
@@ -32,13 +34,15 @@
   - [x] next level
 - [x] adaptive font size
 - [-] pad the screen to the middle
+- [ ] tutorial texts
+- [ ] win screen texts
 
 ## gfx
 - [x] background
 - [x] more background palettes
 - [ ] sticky
 - [ ] "falling into black hole" fade
-- [ ] dashed line for path
+- [ ] ~~dashed line for path~~
 - [ ] ~~separate line for altered path preview~~
 - [x] win screen
 - [ ] transition
