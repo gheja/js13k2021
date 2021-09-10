@@ -87,16 +87,6 @@ class BackgroundGfx
 			}
 		}
 		
-	/*
-		// normalize map
-		for (x=0; x<NOISE_RESOLUTION; x++)
-		{
-			for (y=0; y<NOISE_RESOLUTION; y++)
-			{
-				map[x][y] = (map[x][y] - min) * (1 / (max - min));
-			}
-		}
-	*/
 		d = ctx.getImageData(0, 0, NOISE_RESOLUTION, NOISE_RESOLUTION);
 		
 		// normalization + output
