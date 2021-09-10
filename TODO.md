@@ -34,8 +34,8 @@
 - [-] pad the screen to the middle
 
 ## gfx
-- [ ] background
-- [ ] more background palettes
+- [x] background
+- [x] more background palettes
 - [ ] sticky
 - [ ] "falling into black hole" fade
 - [ ] dashed line for path
