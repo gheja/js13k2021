@@ -11,7 +11,8 @@ body
 	overscroll-behavior: none;
 }
 
-#c1
+#c1,
+#c2
 {
 	position: fixed;
 	left: 0;

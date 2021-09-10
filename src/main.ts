@@ -1,4 +1,5 @@
 let _gfx: Gfx;
+let _backgroundGfx: BackgroundGfx;
 let _game: Game;
 let _cursorDown = false;
 let _cursorDownPosition: Vec2D;
@@ -7,6 +8,7 @@ let _cursorPosition: Vec2D;
 function onResize()
 {
 	_gfx.resize();
+	_backgroundGfx.resize();
 }
 
 function onFrame()
@@ -80,6 +82,7 @@ function initGame()
 function init()
 {
 	_gfx = new Gfx("c1");
+	_backgroundGfx = new BackgroundGfx("c2");
 	
 	initCursor();
 	initEventHandlers();

@@ -181,6 +181,8 @@ class Game
 		// update zoom and other parameters
 		_gfx.resize();
 		
+		_backgroundGfx.run();
+		
 		this.unpause();
 	}
 	
