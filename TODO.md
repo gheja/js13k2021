@@ -18,7 +18,7 @@
 - [ ] limit drag to avaiable correction budget
 - [x] levels should include zoom too
 - [ ] tutorial
-- [ ] win screen summary
+- [ ] make ticks independent of frames
 
 ## ui
 - [ ] black hole grows? only gfx? something else?
@@ -35,7 +35,13 @@
 - [x] adaptive font size
 - [-] pad the screen to the middle
 - [ ] tutorial texts
-- [ ] win screen texts
+- [ ] win screen
+  - [ ] texts
+  - [ ] scores
+  - [ ] "retry" button
+  - [ ] leaderboard
+- [ ] title screen / main menu
+- [ ] score popping up when an object falls into black hole
 
 ## gfx
 - [x] background
@@ -47,6 +53,9 @@
 - [x] win screen
 - [ ] transition
 - [x] black hole
+
+## accessibility
+- [ ] high contrast mode
 
 ## elements
 - [ ] goo to slow down
