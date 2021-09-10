@@ -343,7 +343,7 @@ class Gfx
 		
 		size = PRERENDER_SIZE * 0.45;
 		
-		for (c of [ "#c07", "#e08", "#f44" "#f81" "#fc5", "#fff", "#000", "#111", "#000" ])
+		for (c of [ "#c073", "#c076", "#e08d", "#f44" "#f81" "#fc5", "#fff", "#000", "#111", "#000" ])
 		{
 			ctx.fillStyle = c;
 			ctx.beginPath();
