@@ -28,6 +28,15 @@ function _px(a)
 	return a *_gfx.pixelRatio * _gfx.zoom * _gfx.levelZoom;
 }
 
+function _ix(a)
+{
+	return (a + _gfx.pad.x + _gfx.levelPad.x) * _gfx.zoom * _gfx.levelZoom;
+}
+
+function _iy(a)
+{
+	return (a + _gfx.pad.y + _gfx.levelPad.y) * _gfx.zoom * _gfx.levelZoom;
+}
 function _ipx(a)
 {
 	return a / _gfx.zoom;

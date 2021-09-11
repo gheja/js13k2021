@@ -269,8 +269,8 @@ class Game
 			
 			if (this.currentDragObject)
 			{
-				_cursorDownPosition.x = _x(this.currentDragObject.position.x);
-				_cursorDownPosition.y = _y(this.currentDragObject.position.y);
+				_cursorDownPosition.x = _ix(this.currentDragObject.position.x);
+				_cursorDownPosition.y = _iy(this.currentDragObject.position.y);
 			}
 			
 			if (this.autopauseEnabled)
