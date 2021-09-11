@@ -5,6 +5,8 @@ let _cursorDown = false;
 let _cursorDownPosition: Vec2D;
 let _cursorPosition: Vec2D;
 
+let _music: Music;
+
 function onResize()
 {
 	_gfx.resize();
@@ -88,6 +90,7 @@ function init()
 {
 	_gfx = new Gfx("c1");
 	_backgroundGfx = new BackgroundGfx("c2");
+	_music = new Music();
 	
 	initCursor();
 	initEventHandlers();
@@ -149,6 +152,7 @@ function b1(action: number)
 	}
 	else if (action == 11)
 	{
+		_music.start();
 		document.getElementById("intro").style.display = "none";
 	}
 }

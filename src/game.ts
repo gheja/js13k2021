@@ -271,6 +271,8 @@ class Game
 			{
 				_cursorDownPosition.x = _ix(this.currentDragObject.position.x);
 				_cursorDownPosition.y = _iy(this.currentDragObject.position.y);
+				
+				_music.soundDrag(0);
 			}
 			
 			if (this.autopauseEnabled)
@@ -301,6 +303,8 @@ class Game
 				_stats.correctionCount++;
 				_stats.correctionTotalCost += this.currentDragVectorCost;
 				this.correctionBalance -= this.currentDragVectorCost;
+				
+				_music.soundDrag(1);
 			}
 			
 			this.currentDragObject = null;
@@ -345,6 +349,7 @@ class Game
 			
 			console.log(_stats.victoryPoints, _stats.victoryPointsGoal);
 			
+			_music.soundDestroyed();
 			// TODO: add some effects?
 		}
 	}
@@ -357,6 +362,7 @@ class Game
 			document.getElementById("next").style.display = "";
 			this.paused = true;
 			this.gameState = GAME_STATE_WON;
+			_music.soundWin();
 		}
 	}
 	
