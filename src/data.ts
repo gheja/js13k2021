@@ -14,7 +14,7 @@ let _levels = [
 			[ OBJ_ROCK,       20, 25, 0.0, 0.0, 1e3 ],
 		],
 		1, 0, 0, 2, 10,
-		"Now try to fling that rock into the black hole.",
+		"Let's start with that rock, try to fling it into the black hole.",
 	],
 	
 	// tutorial 2
@@ -64,6 +64,8 @@ let _levels = [
 		
 		// stepSize, viewPad.x, viewPad.y, zoom, victoryPointsGoal
 		1, 0, 5, 1.5, 30,
+		
+		// tutorial text
 		"",
 	],
 ];
