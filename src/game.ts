@@ -376,7 +376,7 @@ class Game
 		
 		a = [];
 		
-		if (_cursorDown && this.currentDragVectorCost != null)
+		if (_cursorDown && this.currentDragPicked)
 		{
 			a.push("Correction cost: " + Math.floor(this.currentDragVectorCost) + "f");
 		}
