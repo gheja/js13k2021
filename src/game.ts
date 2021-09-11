@@ -269,7 +269,8 @@ class Game
 			
 			if (this.currentDragObject)
 			{
-//				this._cursorDownPosition.copyFrom(this.currentDragObject.position);
+				_cursorDownPosition.x = _x(this.currentDragObject.position.x);
+				_cursorDownPosition.y = _y(this.currentDragObject.position.y);
 			}
 			
 			if (this.autopauseEnabled)
