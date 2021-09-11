@@ -8,7 +8,7 @@
 - [x] auto-pause toggle
 - [x] full screen toggle
 - [x] restart level
-- [ ] drag from center of object, not cursorDownPosition
+- [x] drag from center of object, not cursorDownPosition
 - [x] rotation
 - [x] "rotation follows trajectory" toggle
 - [ ] logic to check objects that moved from their original orbit
@@ -17,7 +17,7 @@
 - [ ] use a multiplier for correction cost for bigger objects
 - [ ] limit drag to avaiable correction budget
 - [x] levels should include zoom too
-- [ ] tutorial
+- [x] tutorial
 - [x] make ticks independent of frames
 
 ## ui
@@ -34,16 +34,18 @@
   - [x] next level
 - [x] adaptive font size
 - [-] pad the screen to the middle
-- [ ] tutorial texts
+- [/] tutorial texts
 - [ ] win screen
   - [ ] texts
   - [ ] scores
   - [ ] "retry" button
   - [ ] leaderboard
 - [ ] title screen / main menu
+- [ ] loading screen
 - [ ] score popping up when an object falls into black hole
-- [ ] only show correction amount when dragging something
+- [x] only show correction amount when dragging something
 - [ ] object name and points in the tooltip popup
+- [ ] more variations of "ok" for the tutorial button
 
 ## gfx
 - [x] background
@@ -70,6 +72,15 @@
 - [ ] sentinels with viewing cone
 - [ ] black hole destroyer rocket
 
+## music
+- [ ] add some?
+
+## sounds
+- [ ] selecting an object
+- [ ] releasing an object
+- [ ] object swallowed by black hole
+- [ ] UI sounds?
+
 ## achievements
 
 ## leaderboards
@@ -77,10 +88,10 @@
 ## internals
 - [ ] Array<Float32> instead of Vec2D? maybe?
 - [ ] move functions out of class files
-- [ ] consts uppercase?
+- [x] consts uppercase?
 - [ ] character sequences instead of emojis for emojis?
 - [ ] radius instead of diameter
-- [ ] pre-rendered images instead of emojis? (when devicePixelRatio != 1 custom emojis might fail)
+- [x] pre-rendered images instead of emojis? (when devicePixelRatio != 1 custom emojis might fail)
 
 ## reducing size
 - [ ] remove one of the directions in "prompt user to rotate phone"
