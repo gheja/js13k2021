@@ -42,6 +42,8 @@
   - [ ] leaderboard
 - [ ] title screen / main menu
 - [ ] score popping up when an object falls into black hole
+- [ ] only show correction amount when dragging something
+- [ ] object name and points in the tooltip popup
 
 ## gfx
 - [x] background
@@ -92,3 +94,4 @@ Chrome on iPhone
 - [x] win screen: blur is not working
 - [ ] win screen: buttons are not working?
 - [x] prerendering stuffs before twemoji is loaded - https://stackoverflow.com/a/32292880/460571
+- [ ] full screen button is not working
