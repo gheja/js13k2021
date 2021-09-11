@@ -89,6 +89,6 @@ Chrome on iPhone
 - [ ] emojis not rendering at all
 - [x] pull-to-refresh is not prevented
 - [ ] css media query is not updating ("rotate phone")
-- [ ] win screen: blur is not working
+- [x] win screen: blur is not working
 - [ ] win screen: buttons are not working?
 - [ ] prerendering stuffs before twemoji is loaded
