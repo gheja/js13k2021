@@ -24,14 +24,12 @@ function onMouseDown(event: Event)
 	_cursorDown = true;
 	onMouseMove(event);
 	_cursorDownPosition.copyFrom(_cursorPosition);
-	event.preventDefault();
 }
 
 function onMouseUp(event: Event)
 {
 	_cursorDown = false;
 	onMouseMove(event);
-	event.preventDefault();
 }
 
 function onMouseMove(event: Event)
@@ -50,7 +48,11 @@ function onMouseMove(event: Event)
 		}
 	}
 	catch (e) {}
-	event.preventDefault();
+	
+	if (event.target.id != "intro" && event.target.tagName.toLowerCase() != "button")
+	{
+		event.preventDefault();
+	}
 }
 
 function onMouseClick(event: Event)
