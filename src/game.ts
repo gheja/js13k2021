@@ -297,6 +297,7 @@ class Game
 			{
 				this.applyDrag(this.currentDragObject);
 				
+				this.currentDragObject.picked = false;
 				_stats.correctionCount++;
 				_stats.correctionTotalCost += this.currentDragVectorCost;
 				this.correctionBalance -= this.currentDragVectorCost;
