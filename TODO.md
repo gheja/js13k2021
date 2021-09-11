@@ -18,7 +18,7 @@
 - [ ] limit drag to avaiable correction budget
 - [x] levels should include zoom too
 - [ ] tutorial
-- [ ] make ticks independent of frames
+- [x] make ticks independent of frames
 
 ## ui
 - [ ] black hole grows? only gfx? something else?
@@ -82,3 +82,13 @@
 
 ## reducing size
 - [ ] remove one of the directions in "prompt user to rotate phone"
+
+## bugs
+
+Chrome on iPhone
+- [ ] emojis not rendering at all
+- [ ] pull-to-refresh is not prevented
+- [ ] css media query is not updating ("rotate phone")
+- [ ] win screen: blur is not working
+- [ ] win screen: buttons are not working?
+- [ ] prerendering stuffs before twemoji is loaded
