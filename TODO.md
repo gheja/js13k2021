@@ -32,6 +32,7 @@
   - [ ] ~~autopause enabled~~
   - [x] restart level
   - [x] next level
+  - [ ] mute
 - [x] adaptive font size
 - [-] pad the screen to the middle
 - [/] tutorial texts
