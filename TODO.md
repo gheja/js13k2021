@@ -91,4 +91,4 @@ Chrome on iPhone
 - [ ] css media query is not updating ("rotate phone")
 - [x] win screen: blur is not working
 - [ ] win screen: buttons are not working?
-- [ ] prerendering stuffs before twemoji is loaded
+- [x] prerendering stuffs before twemoji is loaded - https://stackoverflow.com/a/32292880/460571

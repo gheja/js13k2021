@@ -95,6 +95,18 @@ function init()
 	onFrame();
 }
 
+function initWait()
+{
+	// wait for twemoji to load or 10 seconds at most
+	if (!document.fonts.check('1em twemoji') && performance.now() < 10000)
+	{
+		window.setTimeout(initWait, 100);
+		return;
+	}
+	
+	init();
+}
+
 function b1(action: number)
 {
 	if (action == 1)
@@ -129,4 +141,4 @@ function b1(action: number)
 	}
 }
 
-window.addEventListener("load", init);
+window.addEventListener("load", initWait);
