@@ -1,5 +1,5 @@
 // Gravitational constant, see: https://en.wikipedia.org/wiki/Gravitational_constant
-const gravConst = 6.67430e-11;
+const GRAVITATIONAL_CONSTANT = 6.67430e-11;
 
 const TICKS_PER_SECOND = 60;
 

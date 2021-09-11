@@ -60,7 +60,7 @@ class GravitySystem
 				
 				r = dist2d(a.position, b.position);
 				
-				f = gravConst * ((a.mass * b.mass) / (r ** 2)); // kg * m / s^2
+				f = GRAVITATIONAL_CONSTANT * ((a.mass * b.mass) / (r ** 2)); // kg * m / s^2
 				
 				// Not too scientific
 				//
