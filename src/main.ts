@@ -95,6 +95,8 @@ function init()
 	
 	onResize();
 	onFrame();
+	
+	document.getElementById("intro").classList.add("loaded");
 }
 
 function initWait()
@@ -144,6 +146,10 @@ function b1(action: number)
 	else if (action == 10)
 	{
 		_game.unpause();
+	}
+	else if (action == 11)
+	{
+		document.getElementById("intro").style.display = "none";
 	}
 }
 
