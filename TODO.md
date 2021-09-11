@@ -87,7 +87,7 @@
 
 Chrome on iPhone
 - [ ] emojis not rendering at all
-- [ ] pull-to-refresh is not prevented
+- [x] pull-to-refresh is not prevented
 - [ ] css media query is not updating ("rotate phone")
 - [ ] win screen: blur is not working
 - [ ] win screen: buttons are not working?

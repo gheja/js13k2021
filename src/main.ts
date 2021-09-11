@@ -24,12 +24,14 @@ function onMouseDown(event: Event)
 	_cursorDown = true;
 	onMouseMove(event);
 	_cursorDownPosition.copyFrom(_cursorPosition);
+	event.preventDefault();
 }
 
 function onMouseUp(event: Event)
 {
 	_cursorDown = false;
 	onMouseMove(event);
+	event.preventDefault();
 }
 
 function onMouseMove(event: Event)
@@ -48,6 +50,7 @@ function onMouseMove(event: Event)
 		}
 	}
 	catch (e) {}
+	event.preventDefault();
 }
 
 function onMouseClick(event: Event)
@@ -65,8 +68,8 @@ function initEventHandlers()
 {
 	window.addEventListener("resize", onResize);
 	window.addEventListener("mousemove", onMouseMove);
-	window.addEventListener("touchstart", onMouseDown);
-	window.addEventListener("touchmove", onMouseMove);
+	window.addEventListener("touchstart", onMouseDown, { passive:false });
+	window.addEventListener("touchmove", onMouseMove, { passive:false });
 	window.addEventListener("touchend", onMouseUp);
 	window.addEventListener("mousedown", onMouseDown);
 	window.addEventListener("mouseup", onMouseUp);
