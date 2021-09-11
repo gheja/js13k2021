@@ -205,6 +205,8 @@ class Game
 		
 		_backgroundGfx.run();
 		
+		this.unpause();
+		
 		if (this.lastLevelIndex != levelIndex)
 		{
 			if (level[6])
@@ -219,10 +221,6 @@ class Game
 			
 			this.lastLevelIndex = levelIndex;
 			this.hideOverlay();
-		}
-		else
-		{
-			this.unpause();
 		}
 	}
 	
