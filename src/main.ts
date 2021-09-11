@@ -139,6 +139,10 @@ function b1(action: number)
 	{
 		_game.restartLevel();
 	}
+	else if (action == 10)
+	{
+		_game.unpause();
+	}
 }
 
 window.addEventListener("load", initWait);

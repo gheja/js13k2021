@@ -147,3 +147,30 @@ button:hover
 	clear: both;
 	float: none;
 }
+
+#tip
+{
+	position: fixed;
+	top: 10vh;
+	left: 10vw;
+	right: 10vw;
+	padding: 0.5em;
+	background: #fffa;
+	border-radius: 2em;
+	text-align: center;
+	display: none;
+}
+#tiptext
+{
+	margin: 0.5em;
+}
+
+#tip.ok
+{
+	background: #0000;
+	color: #fff8;
+}
+#tip.ok button
+{
+	display: none;
+}

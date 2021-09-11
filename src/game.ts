@@ -8,6 +8,7 @@ class Game
 	autopaused: boolean;
 	autopauseEnabled: boolean;
 	tooltip: string;
+	lastLevelIndex: number;
 	currentLevelIndex: number;
 	
 	currentDragPicked: boolean;
@@ -63,11 +64,29 @@ class Game
 		}
 	}
 	
+	showTip(s)
+	{
+		document.getElementById("tip").style.display = "block";
+		document.getElementById("tip").classList.remove("ok");
+		document.getElementById("tiptext").innerHTML = s;
+	}
+	
+	hideTip()
+	{
+		document.getElementById("tip").style.display = "none";
+	}
+	
+	hideOverlay()
+	{
+		document.getElementById("overlay").style.display = "none";
+	}
+	
 	unpause()
 	{
 		this.paused = false;
 		this.autopaused = false;
-		document.getElementById("overlay").style.display = "none";
+		document.getElementById("tip").classList.add("ok");
+		this.hideOverlay();
 	}
 	
 	ticksToTime(n)
@@ -186,7 +205,25 @@ class Game
 		
 		_backgroundGfx.run();
 		
-		this.unpause();
+		if (this.lastLevelIndex != levelIndex)
+		{
+			if (level[6])
+			{
+				this.showTip(level[6]);
+				this.paused = true;
+			}
+			else
+			{
+				this.hideTip();
+			}
+			
+			this.lastLevelIndex = levelIndex;
+			this.hideOverlay();
+		}
+		else
+		{
+			this.unpause();
+		}
 	}
 	
 	loadNextLevel()

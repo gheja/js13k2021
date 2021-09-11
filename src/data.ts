@@ -9,12 +9,22 @@ let _objectDefinitions = [
 let _levels = [
 	[
 		[
+			[ OBJ_BLACK_HOLE, 60, 25, 0.0, 0.0, 1e10 ],
+			[ OBJ_ROCK,       20, 25, 0.0, 0.0, 1e3 ],
+		],
+		1, 0, 0, 2, 10,
+		"Now fling that rock into the black hole.",
+	],
+	
+	[
+		[
 			[ OBJ_BLACK_HOLE, 10, 25,  0.0,  0.0,  1e10 ],
 			[ OBJ_ROCKET,     75, 25, -0.1, -0.03, 1e3 ],
 			[ OBJ_SATELLITE,  70, 10,  0.0,  0.0,  1e3 ],
 			[ OBJ_SATELLITE,  60, 35,  0.0,  0.0,  1e3 ],
 		],
 		1, 0, 0, 2, 30,
+		"On some levels you don't need to clear all objects to complete.<br/>If you want though, you need to plan the order of clearing them.",
 	],
 	
 	[
@@ -24,6 +34,7 @@ let _levels = [
 			[ OBJ_ROCKET,      80, 23, 0.0,  0.5,   1e9 ],
 		],
 		0.5, 0, 0, 2, 20,
+		"",
 	],
 	
 	// first level
@@ -39,5 +50,6 @@ let _levels = [
 		
 		// stepSize, viewPad.x, viewPad.y, zoom, victoryPointsGoal
 		1, 0, 5, 1.5, 30,
+		"",
 	],
 ];
