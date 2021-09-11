@@ -3,19 +3,32 @@ let _objectDefinitions = [
 	[ "🌑",  5, 0,     false, 10 ],     // OBJ_ROCK = 0
 	[ "🚀",  5, 0.125, true,  20 ],     // OBJ_ROCKET
 	[ "🛰️",  5, 0.125, true,  10 ],     // OBJ_SATELLITE
-	[ "x", 30, 0,     false,  0, 40 ], // OBJ_BLACK_HOLE
+	[ "x",  30, 0,     false,  0, 40 ], // OBJ_BLACK_HOLE
 ];
 
 let _levels = [
+	// tutorial 1
 	[
 		[
 			[ OBJ_BLACK_HOLE, 60, 25, 0.0, 0.0, 1e10 ],
 			[ OBJ_ROCK,       20, 25, 0.0, 0.0, 1e3 ],
 		],
 		1, 0, 0, 2, 10,
-		"Now fling that rock into the black hole.",
+		"Now try to fling that rock into the black hole.",
 	],
 	
+	// tutorial 2
+	[
+		[
+			[ OBJ_BLACK_HOLE, 50, 25, 0.0, 0.0, 1e10 ],
+			[ OBJ_ROCK,       10, 35, 0.0, 0.0, 1e3 ],
+			[ OBJ_ROCK,       90, 40, 0.0, 0.0, 1e3 ],
+		],
+		1, 0, 0, 2, 20,
+		"The yellow bar shows the force you can use, the purple one shows the progress of the black hole.",
+	],
+	
+	// tutorial 3
 	[
 		[
 			[ OBJ_BLACK_HOLE, 10, 25,  0.0,  0.0,  1e10 ],
@@ -24,9 +37,10 @@ let _levels = [
 			[ OBJ_SATELLITE,  60, 35,  0.0,  0.0,  1e3 ],
 		],
 		1, 0, 0, 2, 30,
-		"On some levels you don't need to clear all objects to complete.<br/>If you want though, you need to plan the order of clearing them.",
+		"On some levels you don't need to clear all objects to complete (notice the brighter part of the bar above).<br/><br/>If you want perfect score though, you need to plan the order of clearing them.",
 	],
 	
+	// tutorial 4
 	[
 		[
 			[ OBJ_BLACK_HOLE,   5, 25, 0.0,  0.0,   1e10 ],
@@ -34,7 +48,7 @@ let _levels = [
 			[ OBJ_ROCKET,      80, 23, 0.0,  0.5,   1e9 ],
 		],
 		0.5, 0, 0, 2, 20,
-		"",
+		"Object can also orbit around one another if the conditions are right.",
 	],
 	
 	// first level
