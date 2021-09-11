@@ -82,6 +82,7 @@ cd "$target_dir"
 ### stage1 - compilation of typescript to javascript, minimization of javascript and css files
 
 mkdir stage1
+mkdir stage1/3rdparty
 cd stage1
 
 now=`date +%Y%m%d_%H%M%S`
@@ -91,6 +92,7 @@ zip_prefix="${name}_${now}"
 _title "Copying files to build directory..."
 
 try rsync -xa --exclude '*.js' --exclude '*.js.map' --exclude '*.zip' "${source_dir}/" ./
+try rsync -xa "${source_dir}/3rdparty/" ./3rdparty/
 
 zip -r9 ${zip_prefix}_original.zip .
 
@@ -110,7 +112,8 @@ echo "travis_fold:start:npm"
 export PATH="${target_dir}/stage1/node_modules/.bin:${PATH}"
 
 files_html="index.html"
-files_javascript=`cat index.html | grep -E '<script.* src="([^"]+)"' | grep -Eo 'src=\".*\"' | cut -d \" -f 2`
+files_javascript=`cat index.html | grep -E '<script.* src="([^"]+)"' | grep -Eo 'src=\".*\"' | cut -d \" -f 2 | grep -vE '^3rdparty/'`
+files_javascript_3rdparty=`cat index.html | grep -E '<script.* src="([^"]+)"' | grep -Eo 'src=\".*\"' | cut -d \" -f 2 | grep -E '^3rdparty/'`
 files_typescript=`echo "$files_javascript" | sed -r 's/\.js$/.ts/g'`
 files_css=`cat index.html | grep -E '<link type="text/css" rel="stylesheet" href="([^"]+)"' | grep -Eo 'href=\".*\"' | cut -d \" -f 2`
 
@@ -146,7 +149,7 @@ try google-closure-compiler \
 	--formatting PRETTY_PRINT \
 	--formatting SINGLE_QUOTES \
 	--js_output_file min_pretty.js \
-	$files_javascript
+	$files_javascript_3rdparty $files_javascript
 
 echo "travis_fold:end:closure-compiler-1"
 
