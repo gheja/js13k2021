@@ -27,3 +27,23 @@ function randPlusMinus(x)
 {
 	return (randFloat() - 0.5) * x * 2;
 }
+
+// thanks https://github.com/nicolas-van/sonant-x
+// n: halfnote, 128 = A4, 129 = A#4, 130 = B4, ...
+function getNoteFrequency(n)
+{
+	return Math.pow(1.059463094, n - 128) * 440;
+}
+
+function arrayShuffle(a) {
+	// thx https://stackoverflow.com/a/6274381/460571
+	var j, x, i;
+	
+	for (i = a.length; i; i--)
+	{
+		j = Math.floor(Math.random() * i);
+		x = a[i - 1];
+		a[i - 1] = a[j];
+		a[j] = x;
+	}
+}
