@@ -284,7 +284,7 @@ class Gfx
 	
 	drawDrag()
 	{
-		if (_game.currentDragPicked)
+		if (_game.currentDragObject)
 		{
 			this.ctx.strokeStyle = "#eb0";
 			this.ctx.lineWidth = _px(0.3);

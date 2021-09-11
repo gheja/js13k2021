@@ -11,7 +11,7 @@ class Game
 	lastLevelIndex: number;
 	currentLevelIndex: number;
 	
-	currentDragPicked: boolean;
+	currentDragObject: GameObject;
 	currentDragVector: Vec2D;
 	currentDragVectorCost: number;
 	correctionBalance: number;
@@ -244,14 +244,10 @@ class Game
 	{
 		let a;
 		
-		// TODO: in case only one object can be picked: rework this to
-		// have a pickedObject. currentDragPicked would be no longer
-		// needed, neither looping through the bodies.
-		
 		// just picked an object
 		if (!this.lastCursorDown && _cursorDown)
 		{
-			this.currentDragPicked = false;
+			this.currentDragObject = null;
 			
 			for (a of this.system.bodies)
 			{
@@ -265,10 +261,15 @@ class Game
 					if (dist2d(new Vec2D(_x(a.position.x) / _gfx.pixelRatio, _y(a.position.y) / _gfx.pixelRatio), _cursorDownPosition) < 50)
 					{
 						a.picked = true;
-						this.currentDragPicked = true;
+						this.currentDragObject = a;
 						break;
 					}
 				}
+			}
+			
+			if (this.currentDragObject)
+			{
+//				this._cursorDownPosition.copyFrom(this.currentDragObject.position);
 			}
 			
 			if (this.autopauseEnabled)
@@ -277,7 +278,7 @@ class Game
 			}
 		}
 		
-		if (this.currentDragPicked)
+		if (this.currentDragObject)
 		{
 			this.currentDragVector = new Vec2D(_ipx(_cursorDownPosition.x - _cursorPosition.x) * DRAG_VECTOR_MULTIPLIER, _ipx(_cursorDownPosition.y - _cursorPosition.y) * DRAG_VECTOR_MULTIPLIER);
 		}
@@ -291,21 +292,16 @@ class Game
 		// just released the picked object (if any)
 		if (this.lastCursorDown && !_cursorDown)
 		{
-			for (a of this.system.bodies)
+			if (this.currentDragObject)
 			{
-				if (a.picked)
-				{
-					this.applyDrag(a);
-					
-					_stats.correctionCount++;
-					_stats.correctionTotalCost += this.currentDragVectorCost;
-					this.correctionBalance -= this.currentDragVectorCost;
-				}
+				this.applyDrag(this.currentDragObject);
 				
-				a.picked = false;
+				_stats.correctionCount++;
+				_stats.correctionTotalCost += this.currentDragVectorCost;
+				this.correctionBalance -= this.currentDragVectorCost;
 			}
 			
-			this.currentDragPicked = false;
+			this.currentDragObject = null;
 			this.currentDragVectorCost = 0;
 			
 			if (this.autopauseEnabled)
@@ -374,7 +370,7 @@ class Game
 		
 		a = [];
 		
-		if (_cursorDown && this.currentDragPicked)
+		if (_cursorDown && this.currentDragObject)
 		{
 			a.push("Correction cost: " + Math.floor(this.currentDragVectorCost) + "f");
 		}
