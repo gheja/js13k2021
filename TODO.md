@@ -86,8 +86,8 @@
 ## bugs
 
 Chrome on iPhone
-- [ ] emojis not rendering at all
-- [x] pull-to-refresh is not prevented
+- [x] emojis not rendering at all - https://github.com/mozilla/twemoji-colr/issues/50
+- [x] pull-to-refresh is not prevented - https://stackoverflow.com/a/57215061
 - [ ] css media query is not updating ("rotate phone")
 - [x] win screen: blur is not working
 - [ ] win screen: buttons are not working?

@@ -311,7 +311,7 @@ class Gfx
 			ctx.font = (PRERENDER_SIZE * 0.95) + "px twemoji";
 			ctx.textAlign = "center";
 			ctx.textBaseline = "middle";
-			ctx.fillText(index, PRERENDER_SIZE / 2, PRERENDER_SIZE / 2);
+			ctx.fillText(index, PRERENDER_SIZE / 2, PRERENDER_SIZE * 0.7);
 			
 			this.prerenderedStuffs[index] = canvas;
 		}
