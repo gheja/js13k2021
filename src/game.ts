@@ -462,8 +462,7 @@ class Game
 		{
 			a.push("Paused");
 		}
-		
-		if (this.autopaused)
+		else if (this.autopaused)
 		{
 			a.push("Autopaused");
 		}
