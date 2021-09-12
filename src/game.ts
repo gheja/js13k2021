@@ -453,6 +453,11 @@ class Game
 		
 		if (_cursorDown && this.currentDragObject)
 		{
+			if (this.currentDragObject.victoryPoints > 0)
+			{
+				a.push(this.currentDragObject.victoryPoints + " points");
+			}
+			
 			a.push("Correction cost: " + Math.floor(this.currentDragVectorCost) + "f");
 		}
 		
