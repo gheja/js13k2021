@@ -84,5 +84,31 @@ class GameObject extends GravityBody
 	
 	panic()
 	{
+		let a, obj, v, n, b;
+		
+		for (a of _game.system.bodies)
+		{
+			if (a.isBlackHole)
+			{
+				b = a;
+				break;
+			}
+		}
+		
+		obj = _objectDefinitions[OBJ_DESTROYER];
+		
+		v = new Vec2D((b.position.x + (Math.random() - 0.5) * 30) - this.position.x, (b.position.y + (Math.random() - 0.5) * 30) - this.position.y);
+		v.normalize();
+		
+		// n = new Vec2D();
+		// n.copyFrom(v);
+		// n.normalize();
+		
+		a = new GameObject(obj[0], "dummy", "#fff", new Vec2D(this.position.x + v.x * 5, this.position.y + v.y * 5), new Vec2D(v.x/100, v.y/100), 1e3, obj[1]);
+		a.pickable = false;
+		a.friend = true;
+		a.victoryPoints = 0;
+		
+		_game.system.bodies.push(a);
 	}
 }

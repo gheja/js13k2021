@@ -15,6 +15,7 @@ let _objectDefinitions = [
 	[ "🪐",  5, 0,     true,  25 ],            // OBJ_ROCK3
 	[ "🗿",  5, 0,     true,  0, 0, true ],   // OBJ_MOAI
 	[ "🚗",  5, 0.5,   true,  50 ],           // OBJ_CAR
+	[ "🌀",  5, 0,     true,  50 ],           // OBJ_DESTROYER
 ];
 
 let _levels = [

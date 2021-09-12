@@ -25,6 +25,7 @@ const OBJ_STAR3 = 11;
 const OBJ_ROCK3 = 12;
 const OBJ_MOAI = 13;
 const OBJ_CAR = 14;
+const OBJ_DESTROYER = 15;
 
 const DRAG_VECTOR_MULTIPLIER = 1/500;
 
