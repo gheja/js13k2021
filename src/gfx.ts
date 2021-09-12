@@ -332,21 +332,25 @@ class Gfx
 	{
 		let canvas, ctx, index, c, size;
 		
-		index = "x"
-		if (!this.prerenderedStuffs[index])
+		function initx(a, index)
 		{
-			canvas = document.createElement("canvas");
-			canvas.width = PRERENDER_SIZE;
-			canvas.height = PRERENDER_SIZE;
-			
-			this.prerenderedStuffs[index] = canvas;
-		}
-		else
-		{
-			canvas = this.prerenderedStuffs[index];
+			if (!a.prerenderedStuffs[index])
+			{
+				canvas = document.createElement("canvas");
+				canvas.width = PRERENDER_SIZE;
+				canvas.height = PRERENDER_SIZE;
+				
+				a.prerenderedStuffs[index] = canvas;
+			}
+			else
+			{
+				canvas = a.prerenderedStuffs[index];
+			}
+			ctx = canvas.getContext("2d");
 		}
 		
-		ctx = canvas.getContext("2d");
+		// black hole
+		initx(this, "x");
 		
 		ctx.setTransform(1, 0, 0, 1, PRERENDER_SIZE / 2, PRERENDER_SIZE / 2);
 		
@@ -361,6 +365,16 @@ class Gfx
 			
 			size *= 0.96;
 		}
+		
+		// dog
+		initx(this, "d");
+		ctx.font = (PRERENDER_SIZE * 0.95) + "px twemoji";
+		ctx.textAlign = "center";
+		ctx.textBaseline = "middle";
+		ctx.fillText("🐕", PRERENDER_SIZE / 2, PRERENDER_SIZE * 0.7);
+		ctx.globalAlpha = 0.4;
+		ctx.font = (PRERENDER_SIZE * 0.48) + "px twemoji";
+		ctx.fillText("⚪", PRERENDER_SIZE * 0.24, PRERENDER_SIZE * 0.4);
 	}
 	
 	drawObjects(blackholes: boolean)

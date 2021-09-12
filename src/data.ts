@@ -4,6 +4,7 @@ let _objectDefinitions = [
 	[ "🚀",  5, 0.125, true,  20 ],     // OBJ_ROCKET
 	[ "🛰️",  5, 0.125, true,  10 ],     // OBJ_SATELLITE
 	[ "x",  30, 0,     false,  0, 40 ], // OBJ_BLACK_HOLE
+	[ "d",   5, 0.5,   true,   0 ],     // OBJ_DOG
 ];
 
 let _levels = [
@@ -12,6 +13,7 @@ let _levels = [
 		[
 			[ OBJ_BLACK_HOLE, 60, 25, 0.0, 0.0, 1e10 ],
 			[ OBJ_ROCK,       20, 25, 0.0, 0.0, 1e3 ],
+			[ OBJ_DOG,        90, 10, 0.0, 0.0, 1e3 ],
 		],
 		1, 0, 0, 2, 10,
 		"Let's start with that rock, try to fling it into the black hole.",
