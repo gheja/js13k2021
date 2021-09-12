@@ -97,7 +97,7 @@ class GameObject extends GravityBody
 		
 		obj = _objectDefinitions[OBJ_DESTROYER];
 		
-		v = new Vec2D((b.position.x + (Math.random() - 0.5) * 20) - this.position.x, (b.position.y + (Math.random() - 0.5) * 20) - this.position.y);
+		v = new Vec2D((b.position.x + (Math.random() - 0.5) * 10) - this.position.x, (b.position.y + (Math.random() - 0.5) * 10) - this.position.y);
 		v.normalize();
 		
 		a = new GameObject(obj[0], "dummy", "#fff", new Vec2D(this.position.x + v.x * 5, this.position.y + v.y * 5), new Vec2D(v.x/2, v.y/2), a.mass / 50, obj[1]);
