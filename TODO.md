@@ -11,14 +11,15 @@
 - [x] drag from center of object, not cursorDownPosition
 - [x] rotation
 - [x] "rotation follows trajectory" toggle
-- [ ] logic to check objects that moved from their original orbit
+- [ ] ~~logic to check objects that moved from their original orbit~~
 - [x] win condition
-- [ ] lose condition (if any)
-- [ ] use a multiplier for correction cost for bigger objects
+- [x] lose condition (if any)
+- [ ] ~~use a multiplier for correction cost for bigger objects~~
 - [ ] limit drag to avaiable correction budget
 - [x] levels should include zoom too
 - [x] tutorial
 - [x] make ticks independent of frames
+- [ ] simplify scoring
 
 ## ui
 - [ ] black hole grows? only gfx? something else?
@@ -48,6 +49,7 @@
 - [ ] object name and points in the tooltip popup
 - [ ] more variations of "ok" for the tutorial button
 - [x] pet the dog
+- [ ] dont't show "paused - autopaused" when autopausing while paused
 
 ## gfx
 - [x] background
