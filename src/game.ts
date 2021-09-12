@@ -355,6 +355,10 @@ class Game
 			
 			console.log(_stats.victoryPoints, _stats.victoryPointsGoal);
 			
+			// gfx?!
+			popDiv(_x(a.position.x), _y(a.position.y), "+" + a.victoryPoints);
+			popDiv(_uix(80), _uiy(5), _stats.victoryPoints, true);
+			
 			_music.soundDestroyed();
 			// TODO: add some effects?
 		}
