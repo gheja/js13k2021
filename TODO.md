@@ -37,6 +37,7 @@
 - [x] adaptive font size
 - [-] pad the screen to the middle
 - [/] tutorial texts
+- [ ] intro text
 - [ ] win screen
   - [ ] texts
   - [ ] scores
@@ -46,10 +47,11 @@
 - [ ] loading screen
 - [x] score popping up when an object falls into black hole
 - [x] only show correction amount when dragging something
-- [ ] object name and points in the tooltip popup
+- [x] ~~object name and~~ points in the tooltip popup
 - [ ] more variations of "ok" for the tutorial button
 - [x] pet the dog
-- [ ] dont't show "paused - autopaused" when autopausing while paused
+- [x] don't show "paused - autopaused" when autopausing while paused
+- [x] don't show "+0"
 
 ## gfx
 - [x] background
