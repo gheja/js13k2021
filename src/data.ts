@@ -23,7 +23,6 @@ let _levels = [
 		[
 			[ OBJ_BLACK_HOLE, 60, 25, 0.0, 0.0, 1e10 ],
 			[ OBJ_ROCK,       20, 25, 0.0, 0.0, 1e3 ],
-			[ OBJ_DOG,        90, 10, 0.0, 0.0, 1e3 ],
 		],
 		1, 0, 0, 2, 10,
 		"Let's start with that rock, try to fling it into the black hole.",
