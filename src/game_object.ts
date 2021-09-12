@@ -58,7 +58,7 @@ class GameObject extends GravityBody
 					continue;
 				}
 				
-				if (a.objectType != OBJ_ROCKET)
+				if (a.objectType != OBJ_SATELLITE)
 				{
 					continue;
 				}
