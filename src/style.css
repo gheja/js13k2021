@@ -198,3 +198,35 @@ button:hover
 	margin: 10vh auto;
 	color: #fff;
 }
+
+.pop
+{
+	position: fixed;
+	color: #fff;
+	text-shadow: 0.1em 0.1em #000;
+	font-weight: bold;
+	animation: r2 2s forwards;
+}
+.popr
+{
+	animation: r3 2s forwards;
+}
+.popt
+{
+	font-family: twemoji;
+	font-size: 2em;
+}
+@keyframes r2
+{
+	0% { opacity: 0; margin-top: 0; }
+	10% { opacitiy: 1; }
+	80% { opacity: 1; }
+	100% { opacity: 0; margin-top: -1em; }
+}
+@keyframes r3
+{
+	0% { opacity: 0; margin-top: 0; }
+	10% { opacitiy: 1; }
+	80% { opacity: 1; }
+	100% { opacity: 0; margin-top: 1em; }
+}

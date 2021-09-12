@@ -7,6 +7,35 @@ let _cursorPosition: Vec2D;
 
 let _music: Music;
 
+function popDivDestroy(obj)
+{
+	obj.parentNode.removeChild(obj);
+}
+
+function popDiv(x, y, text, reverse, emoji, color)
+{
+	let tmp;
+	
+	tmp = document.createElement("div");
+	tmp.className = "pop";
+	tmp.style.left = x;
+	tmp.style.top = y;
+	tmp.innerHTML = text;
+	
+	if (reverse)
+	{
+		tmp.className += " popr";
+	}
+	
+	if (emoji)
+	{
+		tmp.className += " popt";
+	}
+	
+	document.body.appendChild(tmp);
+	window.setTimeout(popDivDestroy.bind(null, tmp), 2500);
+}
+
 function onResize()
 {
 	_gfx.resize();
