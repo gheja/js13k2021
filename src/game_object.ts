@@ -31,8 +31,9 @@ class GameObject extends GravityBody
 		this.sentinelEnabled = false;
 		this.sentinelAngle = 0;
 		this.sentinelDistance = 22;
-		this.sentinelTicksLeft = 600;
-		this.sentinelTicksTimeout= 600;
+		this.sentinelTicksLeft = 400;
+		this.sentinelTicksTimeout = 400;
+		this.sentinelTicksWarning = 140;
 	}
 	
 	tick()
@@ -68,7 +69,7 @@ class GameObject extends GravityBody
 				}
 			}
 			
-			if (this.sentinelTicksLeft == 180)
+			if (this.sentinelTicksLeft == this.sentinelTicksWarning)
 			{
 				popDiv(_x(this.position.x), _y(this.position.y), "😮", false, true);
 			}

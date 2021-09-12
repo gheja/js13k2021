@@ -397,7 +397,7 @@ class Gfx
 			}
 			
 			gradient = this.ctx.createRadialGradient(0, 0, 0, 0, 0, _px(a.sentinelDistance));
-			if (a.sentinelTicksLeft > 180)
+			if (a.sentinelTicksLeft > a.sentinelTicksWarning)
 			{
 				gradient.addColorStop(0, "#ff0d");
 				gradient.addColorStop(1, "#ff02");
