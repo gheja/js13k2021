@@ -377,6 +377,40 @@ class Gfx
 		ctx.fillText("⚪", PRERENDER_SIZE * 0.24, PRERENDER_SIZE * 0.4);
 	}
 	
+	drawSentinelCones()
+	{
+		let a, gradient;
+		
+		for (a of _game.system.bodies)
+		{
+			if (!a.sentinelEnabled)
+			{
+				continue;
+			}
+			
+			gradient = this.ctx.createRadialGradient(0, 0, 0, 0, 0, _px(a.sentinelDistance));
+			if (a.sentinelTicksLeft > 180)
+			{
+				gradient.addColorStop(0, "#ff0d");
+				gradient.addColorStop(1, "#ff02");
+			else
+			{
+				gradient.addColorStop(0, "#f50d");
+				gradient.addColorStop(1, "#f502");
+			}
+			
+			// this.ctx.setTransform(1, 0, 0, 1, _x(a.position.x), _y(a.position.y));
+			this.ctx.setTransform(1, 0, 0, 1, _x(a.position.x), _y(a.position.y));
+			this.ctx.fillStyle = gradient;
+			this.ctx.beginPath();
+			this.ctx.moveTo(0, 0);
+			this.ctx.arc(0, 0, _px(a.sentinelDistance), (a.sentinelAngle - 0.1) * Math.PI * 2, (a.sentinelAngle + 0.1) * Math.PI * 2);
+			// this.ctx.arc(0, 0, _px(a.sentinelDistance), 0, Math.PI * 2);
+			this.ctx.closePath();
+			this.ctx.fill();
+		}
+	}
+	
 	drawObjects(blackholes: boolean)
 	{
 		let a;
@@ -434,6 +468,7 @@ class Gfx
 		this.ctx.textBaseline = "middle";
 		this.ctx.lineCap = "butt";
 		
+		this.drawSentinelCones();
 		this.drawObjects(true);
 		this.drawPredictedPaths();
 		this.drawDrag();
