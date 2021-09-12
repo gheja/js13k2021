@@ -244,6 +244,13 @@ button:hover
 	display: none;
 }
 
+#d1
+{
+	background: #ff06;
+	font-weight: bold;
+	padding: 0.5em;
+}
+
 #dog:hover
 {
 	bottom: -0.5em;

@@ -393,6 +393,8 @@ class Game
 	
 	checkWinLoseConditions()
 	{
+		let a;
+		
 		if (_stats.victoryPoints >= _stats.victoryPointsGoal)
 		{
 			document.getElementById("overlay").style.display = "block";
@@ -400,6 +402,17 @@ class Game
 			this.paused = true;
 			this.gameState = GAME_STATE_WON;
 			_music.soundWin();
+			
+			document.getElementById("d1").style.display = "none";
+			
+			for (a of this.system.bodies)
+			{
+				if (a.objectType == OBJ_DOG)
+				{
+					document.getElementById("d1").style.display = "block";
+					this.unlockDog();
+				}
+			}
 		}
 	}
 	

@@ -47,7 +47,7 @@
 - [x] only show correction amount when dragging something
 - [ ] object name and points in the tooltip popup
 - [ ] more variations of "ok" for the tutorial button
-- [ ] pet the dog
+- [x] pet the dog
 
 ## gfx
 - [x] background
