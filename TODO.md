@@ -52,6 +52,9 @@
 - [x] pet the dog
 - [x] don't show "paused - autopaused" when autopausing while paused
 - [x] don't show "+0"
+- [ ] show level number
+- [ ] tweet on win
+- [ ] tweet about petting the dog
 
 ## gfx
 - [x] background
