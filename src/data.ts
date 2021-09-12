@@ -5,6 +5,16 @@ let _objectDefinitions = [
 	[ "🛰️",  5, 0.125, true,  10 ],     // OBJ_SATELLITE
 	[ "x",  30, 0,     false,  0, 40 ], // OBJ_BLACK_HOLE
 	[ "d",   5, 0.5,   true,   0 ],     // OBJ_DOG
+	[ "🌍",  5, 0,     false, 10 ],     // OBJ_ROCK2
+	[ "🎃",  5, 0,     true,   0 ],     // OBJ_PUMPKIN
+	[ "🛸",  5, 0,     false,  0 ],     // OBJ_SAUCER
+	[ "👽",  5, 0,     false,  0 ],     // OBJ_ALIEN
+	[ "⭐",  5, 0.25,  true,  10 ],     // OBJ_STAR
+	[ "🌟",  5, 0.25,  true,  15 ],     // OBJ_STAR2
+	[ "✨",  5, 0,     true,  20 ],     // OBJ_STAR3
+	[ "🪐",  5, 0,     true,  25 ],     // OBJ_ROCK3
+	[ "🗿",  5, 0,     true,  0 ],      // OBJ_MOAI
+	[ "🚗",  5, 0.5,   true,  50 ],     // OBJ_CAR
 ];
 
 let _levels = [

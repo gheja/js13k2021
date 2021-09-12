@@ -15,6 +15,16 @@ const OBJ_ROCKET = 1;
 const OBJ_SATELLITE = 2;
 const OBJ_BLACK_HOLE = 3;
 const OBJ_DOG = 4;
+const OBJ_ROCK2 = 5
+const OBJ_PUMPKIN = 6;
+const OBJ_SAUCER = 7;
+const OBJ_ALIEN = 8;
+const OBJ_STAR = 9;
+const OBJ_STAR2 = 10;
+const OBJ_STAR3 = 11;
+const OBJ_ROCK3 = 12;
+const OBJ_MOAI = 13;
+const OBJ_CAR = 14;
 
 const DRAG_VECTOR_MULTIPLIER = 1/500;
 
