@@ -257,6 +257,11 @@ class Game
 		this.checkDog();
 	}
 	
+	tweetDog()
+	{
+		window.open(TWEET_PREFIX + "I%20just%20petted%20Space%20Dog,%20he%20is%20definitely%20a%20good%20boy!%0A%0A%20Can%20you%20find%20him?" + TWEET_SUFFIX);
+	}
+	
 	petDog()
 	{
 		let a;
@@ -269,6 +274,11 @@ class Game
 			popDiv(a[0].left + Math.random() * 30, a[0].top - 5, arrayPick(["❤️", "😇", "☺️" ]), false, true);
 		}
 		popDiv(_cursorPosition.x, _cursorPosition.y + 10, "🤚", true, true);
+	}
+	
+	tweetLevel()
+	{
+		window.open(TWEET_PREFIX + "I%20just%20finished level " + (this.currentLevelIndex + 1) + " scoring 999 points" + (true ? ", it got me %231 on the leaderboard" : "") + "." + TWEET_SUFFIX);
 	}
 	
 	applyDrag(obj: SystemObject)
