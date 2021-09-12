@@ -71,8 +71,8 @@
   - [ ] space invader
 - [ ] thing that should be destroyed last
 - [ ] powerups
-- [ ] sentinels with viewing cone
-- [ ] black hole destroyer rocket
+- [x] sentinels with viewing cone
+- [x] black hole destroyer rocket
 
 ## music
 - [ ] add some?
