@@ -399,13 +399,11 @@ class Gfx
 				gradient.addColorStop(1, "#f502");
 			}
 			
-			// this.ctx.setTransform(1, 0, 0, 1, _x(a.position.x), _y(a.position.y));
 			this.ctx.setTransform(1, 0, 0, 1, _x(a.position.x), _y(a.position.y));
 			this.ctx.fillStyle = gradient;
 			this.ctx.beginPath();
 			this.ctx.moveTo(0, 0);
 			this.ctx.arc(0, 0, _px(a.sentinelDistance), (a.sentinelAngle - 0.1) * Math.PI * 2, (a.sentinelAngle + 0.1) * Math.PI * 2);
-			// this.ctx.arc(0, 0, _px(a.sentinelDistance), 0, Math.PI * 2);
 			this.ctx.closePath();
 			this.ctx.fill();
 		}
@@ -460,6 +458,7 @@ class Gfx
 		this.ctx.rect(_x(10), _y(10), _x(LEVEL_WIDTH - 20), _y(LEVEL_HEIGHT - 20));
 		this.ctx.stroke();
 	}
+	
 	draw()
 	{
 		this.ctx.setTransform(1, 0, 0, 1, 0, 0);
@@ -476,9 +475,5 @@ class Gfx
 		
 		this.drawBar(2, 4, 0, _game.correctionBalanceMax, _game.correctionBalance - _game.currentDragVectorCost, "#eb0")
 		this.drawBar(48, 4, 0, _stats.victoryPointsMax, _stats.victoryPoints, "#c07", _stats.victoryPointsGoal);
-		// this.drawBar(48, 4, 0, 100, 70, "#08c");
-		// this.drawBar(94, 4, 0, 100, 70 "#4d2");
-		
-		// this.drawBoundaries();
 	}
 }
