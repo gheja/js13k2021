@@ -60,7 +60,17 @@ let _levels = [
 			[ OBJ_ROCKET,      80, 23, 0.0,  0.5,   1e9 ],
 		],
 		0.5, 0, 0, 2, 20,
-		"Object can also orbit around one another if the conditions are right.",
+		"Objects can also orbit around one another if the conditions are right.",
+	],
+	
+	[
+		[
+			[ OBJ_BLACK_HOLE,  80, 25, 0.0,  0.0,   1e10 ],
+			[ OBJ_ROCK,        20, 23, 0.0, -0.005, 1e11 ],
+			[ OBJ_SATELLITE,   40, 23, 0.0,  0.5,   1e9 ],
+			[ OBJ_ROCKET,      80, 40, -0.08, 0,   1e9 ],
+		],
+		0.5, 0, 0, 2, 40,
 	],
 	
 	// first level
@@ -79,5 +89,17 @@ let _levels = [
 		
 		// tutorial text
 		"",
+	],
+	
+	[
+		[
+			[ OBJ_BLACK_HOLE,  5,  25,  0.0,   0.0,   1e10 ],
+			[ OBJ_ROCK2,       60, 20,  0.0,  -0.005, 1e9 ],
+			[ OBJ_SATELLITE,   70, 20,  0.0,   0.065, 1e3 ],
+			[ OBJ_ROCKET,      60, 60,  0.02, -0.05,  1e2 ],
+			[ OBJ_SATELLITE,   35, 55,  0.0,   0,     1e2 ],
+		],
+		0.5, 0, 0, 2, 40,
+		"Be careful with planets having radars, they are constantly checking for their satellites.",
 	],
 ];
