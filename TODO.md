@@ -43,10 +43,11 @@
   - [ ] leaderboard
 - [ ] title screen / main menu
 - [ ] loading screen
-- [ ] score popping up when an object falls into black hole
+- [x] score popping up when an object falls into black hole
 - [x] only show correction amount when dragging something
 - [ ] object name and points in the tooltip popup
 - [ ] more variations of "ok" for the tutorial button
+- [ ] pet the dog
 
 ## gfx
 - [x] background
@@ -65,7 +66,7 @@
 ## elements
 - [ ] goo to slow down
 - [ ] thing that should not be destroyed
-  - [ ] space dog
+  - [x] space dog
   - [ ] red guy
   - [ ] space invader
 - [ ] thing that should be destroyed last
@@ -77,9 +78,9 @@
 - [ ] add some?
 
 ## sounds
-- [ ] selecting an object
-- [ ] releasing an object
-- [ ] object swallowed by black hole
+- [x] selecting an object
+- [x] releasing an object
+- [x] object swallowed by black hole
 - [ ] UI sounds?
 
 ## achievements
