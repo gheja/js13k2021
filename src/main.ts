@@ -80,7 +80,7 @@ function onMouseMove(event: Event)
 	}
 	catch (e) {}
 	
-	if (event.target.id != "intro" && event.target.tagName.toLowerCase() != "button")
+	if (event.target.id != "dog" && event.target.tagName.toLowerCase() != "button")
 	{
 		event.preventDefault();
 	}
@@ -113,6 +113,7 @@ function initGame()
 {
 	_game = new Game();
 	_game.loadLevel(0);
+	_game.checkDog();
 }
 
 function init()
@@ -183,6 +184,10 @@ function b1(action: number)
 	{
 		_music.start();
 		document.getElementById("intro").style.display = "none";
+	}
+	else if (action == 12)
+	{
+		_game.petDog();
 	}
 }
 

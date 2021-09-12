@@ -240,6 +240,33 @@ class Game
 		this.loadLevel(this.currentLevelIndex);
 	}
 	
+	checkDog()
+	{
+		if (window.localStorage.getItem("hg:dog", false))
+		{
+			document.getElementById("dog").style.display = "block";
+		}
+	}
+	
+	unlockDog()
+	{
+		window.localStorage.setItem("hg:dog", 1);
+		this.checkDog();
+	}
+	
+	petDog()
+	{
+		let a;
+		
+		a = document.getElementById("dog").getClientRects();
+		console.log(a);
+		if (Math.random() < 0.3)
+		{
+			popDiv(a[0].left + Math.random() * 30, a[0].top - 5, arrayPick(["❤️", "😇", "☺️" ]), false, true);
+		}
+		popDiv(_cursorPosition.x, _cursorPosition.y + 10, "🤚", true, true);
+	}
+	
 	applyDrag(obj: SystemObject)
 	{
 		obj.velocity.x += this.currentDragVector.x;

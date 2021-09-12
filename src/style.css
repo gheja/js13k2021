@@ -231,3 +231,20 @@ button:hover
 	80% { opacity: 1; }
 	100% { opacity: 0; margin-top: 1em; }
 }
+
+#dog
+{
+	font-family: twemoji;
+	font-size: 10rem;
+	position: fixed;
+	right: -0.5em;
+	bottom: -0.8em;
+	transition: bottom 0.5s;
+	cursor: pointer;
+	display: none;
+}
+
+#dog:hover
+{
+	bottom: -0.5em;
+}
