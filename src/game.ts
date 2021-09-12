@@ -265,6 +265,7 @@ class Game
 		console.log(a);
 		if (Math.random() < 0.3)
 		{
+			document.getElementById("dogtweet").style.display = "block";
 			popDiv(a[0].left + Math.random() * 30, a[0].top - 5, arrayPick(["❤️", "😇", "☺️" ]), false, true);
 		}
 		popDiv(_cursorPosition.x, _cursorPosition.y + 10, "🤚", true, true);
