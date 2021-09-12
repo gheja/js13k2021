@@ -30,7 +30,7 @@ class GameObject extends GravityBody
 		
 		this.sentinelEnabled = false;
 		this.sentinelAngle = 0;
-		this.sentinelDistance = 20;
+		this.sentinelDistance = 22;
 		this.sentinelTicksLeft = 600;
 		this.sentinelTicksTimeout= 600;
 	}
@@ -48,7 +48,7 @@ class GameObject extends GravityBody
 			
 			this.sentinelTicksLeft--;
 			
-			this.sentinelAngle += 0.004;
+			this.sentinelAngle = (this.sentinelAngle + 0.006) % 1;
 			
 			for (a of _game.system.bodies)
 			{
@@ -62,7 +62,7 @@ class GameObject extends GravityBody
 					continue;
 				}
 				
-				if (Math.abs(getAngle2D(this.position, a.position) - b) < 0.1 && dist2d(this.position, a.position) < this.sentinelDistance)
+				if (Math.abs(getAngle2D(this.position, a.position) - this.sentinelAngle) < 0.1 && dist2d(this.position, a.position) <= this.sentinelDistance)
 				{
 					this.sentinelTicksLeft = this.sentinelTicksTimeout;
 				}
@@ -97,14 +97,10 @@ class GameObject extends GravityBody
 		
 		obj = _objectDefinitions[OBJ_DESTROYER];
 		
-		v = new Vec2D((b.position.x + (Math.random() - 0.5) * 30) - this.position.x, (b.position.y + (Math.random() - 0.5) * 30) - this.position.y);
+		v = new Vec2D((b.position.x + (Math.random() - 0.5) * 20) - this.position.x, (b.position.y + (Math.random() - 0.5) * 20) - this.position.y);
 		v.normalize();
 		
-		// n = new Vec2D();
-		// n.copyFrom(v);
-		// n.normalize();
-		
-		a = new GameObject(obj[0], "dummy", "#fff", new Vec2D(this.position.x + v.x * 5, this.position.y + v.y * 5), new Vec2D(v.x/100, v.y/100), 1e3, obj[1]);
+		a = new GameObject(obj[0], "dummy", "#fff", new Vec2D(this.position.x + v.x * 5, this.position.y + v.y * 5), new Vec2D(v.x/2, v.y/2), a.mass / 50, obj[1]);
 		a.pickable = false;
 		a.friend = true;
 		a.victoryPoints = 0;
