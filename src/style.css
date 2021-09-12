@@ -86,13 +86,14 @@ body
 #w1,
 #w2
 {
-	margin: 20vh auto;
+	margin: 10vh auto;
 	width: 30em;
 	max-width: 90vw;
 	padding: 1em;
 	background: #fffa;
 	border-radius: 2em;
 	text-align: center;
+	color: #555;
 }
 
 button
@@ -122,31 +123,55 @@ button:hover
 	animation: r1 4s infinite;
 	opacity: 0;
 }
-@media (max-aspect-ratio: 1/1)
+@keyframes r1
 {
-	@keyframes r1
+	0% { opacity: 0; transform: rotate(0deg); }
+	10% { opacity: 1; transform: rotate(0deg); }
+	35% { opacity: 1; transform: rotate(-90deg); }
+	45% { opacity: 0;  transform: rotate(-90deg); }
+	50% { opacity: 0; transform: rotate(0deg); }
+	60% { opacity: 1; transform: rotate(0deg); }
+	85% { opacity: 1; transform: rotate(90deg); }
+	95% { opacity: 0;  transform: rotate(90deg); }
+}
+@media (min-aspect-ratio: 1/1)
+{
+	#r1
 	{
-		0% { opacity: 0; transform: rotate(0deg); }
-		10% { opacity: 1; transform: rotate(0deg); }
-		35% { opacity: 1; transform: rotate(-90deg); }
-		45% { opacity: 0;  transform: rotate(-90deg); }
-		50% { opacity: 0; transform: rotate(0deg); }
-		60% { opacity: 1; transform: rotate(0deg); }
-		85% { opacity: 1; transform: rotate(90deg); }
-		95% { opacity: 0;  transform: rotate(90deg); }
+		display: none;
 	}
 }
 
-.d
+#d2,
+#d3,
+#d4
 {
 	float: left;
-	width: 25%;
+	text-align: right;
+	width: 29%;
+}
+#d3,
+#d4
+{
+	font-weight: bold;
+}
+#l1
+{
+	text-align: left;
+}
+#w1 span
+{
+	color: #000;
+	font-weight: bold;
 }
 
-.clearer
+.h
 {
-	clear: both;
 	float: none;
+	clear: both;
+	color: #000;
+	padding: 0.5em 0;
+	font-weight: bold;
 }
 
 #tip
@@ -248,6 +273,8 @@ button:hover
 #d1
 {
 	background: #ff06;
+	color: #000;
+	margin: 0 0 0.5em 0;
 	font-weight: bold;
 	padding: 0.5em;
 }
@@ -255,4 +282,12 @@ button:hover
 #dog:hover
 {
 	bottom: -0.5em;
+}
+
+#dogtweet
+{
+	position: fixed;
+	right: 0;
+	bottom: 8rem;
+	display: none;
 }
