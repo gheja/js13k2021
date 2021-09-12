@@ -83,7 +83,8 @@ body
 	display: none;
 }
 
-#win
+#w1,
+#w2
 {
 	margin: 20vh auto;
 	width: 30em;

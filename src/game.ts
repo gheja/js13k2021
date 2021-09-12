@@ -10,6 +10,7 @@ class Game
 	tooltip: string;
 	lastLevelIndex: number;
 	currentLevelIndex: number;
+	friendDestroyed: boolean;
 	
 	currentDragObject: GameObject;
 	currentDragVector: Vec2D;
@@ -172,6 +173,7 @@ class Game
 		this.system.stepSize = _levels[levelIndex][1];
 		this.correctionBalance = 0;
 		this.correctionBalanceMax = 200;
+		this.friendDestroyed = false;
 		_gfx.levelPad.x = level[2];
 		_gfx.levelPad.y = level[3];
 		_gfx.levelZoom = level[4];
@@ -389,6 +391,11 @@ class Game
 			
 			_music.soundDestroyed();
 			// TODO: add some effects?
+			
+			if (a.friend)
+			{
+				this.friendDestroyed = true;
+			}
 		}
 	}
 	
@@ -399,6 +406,8 @@ class Game
 		if (_stats.victoryPoints >= _stats.victoryPointsGoal)
 		{
 			document.getElementById("overlay").style.display = "block";
+			document.getElementById("w1").style.display = "block";
+			document.getElementById("w2").style.display = "none";
 			document.getElementById("next").style.display = "";
 			this.paused = true;
 			this.gameState = GAME_STATE_WON;
@@ -414,6 +423,16 @@ class Game
 					this.unlockDog();
 				}
 			}
+		}
+		else if (this.friendDestroyed)
+		{
+			document.getElementById("overlay").style.display = "block";
+			document.getElementById("w1").style.display = "none";
+			document.getElementById("w2").style.display = "block";
+			document.getElementById("next").style.display = "none";
+			this.paused = true;
+			this.gameState = GAME_STATE_LOST;
+			// _music.soundLost();
 		}
 	}
 	

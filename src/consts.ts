@@ -30,5 +30,6 @@ const DRAG_VECTOR_MULTIPLIER = 1/500;
 
 const GAME_STATE_RUNNING = 1;
 const GAME_STATE_WON = 2;
+const GAME_STATE_LOST = 3;
 
 const TEXT_DIVIDER = " &nbsp;&#8901;&nbsp; ";
