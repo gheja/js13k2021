@@ -198,6 +198,7 @@ class Game
 			a.victoryPoints = obj[4];
 			a.rotationBase = obj[2];
 			a.rotationFollowsTrajectory = obj[3];
+			a.friend = obj[6];
 			
 			_stats.victoryPointsMax += obj[4];
 			

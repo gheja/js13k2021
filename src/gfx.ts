@@ -60,6 +60,7 @@ class Gfx
 	zoom: number;
 	pad: Vec2D;
 	pathGradient: CanvasGradient;
+	pathGradientFriend: CanvasGradient;
 	prerenderedStuffs: Array<canvas>;
 	
 	levelPad: Vec2D;
@@ -115,6 +116,13 @@ class Gfx
 		gradient.addColorStop(1.0, "#d61");
 		
 		this.pathGradient = gradient;
+		
+		gradient = this.ctx.createLinearGradient(0, 0, this.canvas.width, 0);
+		gradient.addColorStop(0.0, "#f00");
+		gradient.addColorStop(0.5, "#f50");
+		gradient.addColorStop(1.0, "#f00");
+		
+		this.pathGradientFriend = gradient;
 	}
 	
 	toggleFullscreen()
@@ -266,12 +274,12 @@ class Gfx
 	{
 		let a, b;
 		
-		this.ctx.strokeStyle = this.pathGradient;
 		this.ctx.lineWidth = _px(0.3);
 		this.ctx.setLineDash([]);
 		
 		for (a of _game.system.bodies)
 		{
+			this.ctx.strokeStyle = a.friend ? this.pathGradientFriend : this.pathGradient;
 			this.ctx.beginPath();
 			this.ctx.moveTo(_x(a.position.x), _y(a.position.y));
 			
