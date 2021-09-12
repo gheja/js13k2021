@@ -10,6 +10,11 @@ class GameObject extends GravityBody
 	rotationDelta: number;
 	rotationFollowsTrajectory: boolean;
 	
+	sentinelEnabled: boolean;
+	sentinelAngle: number;
+	sentinelTimeout: number;
+	sentinelLastSeen: number;
+	
 	constructor(icon: string, name: string, color: string, position: Vec2D, velocity: Vec2D, mass: number, diameter: number)
 	{
 		super(position, velocity, mass, diameter);
@@ -22,5 +27,62 @@ class GameObject extends GravityBody
 		this.rotationBase = 0;
 		this.rotationDelta = 0;
 		this.rotationFollowsTrajectory = false;
+		
+		this.sentinelEnabled = false;
+		this.sentinelAngle = 0;
+		this.sentinelDistance = 20;
+		this.sentinelTicksLeft = 600;
+		this.sentinelTicksTimeout= 600;
+	}
+	
+	tick()
+	{
+		let a, b;
+		
+		if (this.sentinelEnabled)
+		{
+			if (this.sentinelLastSeen == null)
+			{
+				this.sentinelLastSeen = performance.now();
+			}
+			
+			this.sentinelTicksLeft--;
+			
+			this.sentinelAngle += 0.004;
+			
+			for (a of _game.system.bodies)
+			{
+				if (a == this)
+				{
+					continue;
+				}
+				
+				if (a.objectType != OBJ_ROCKET)
+				{
+					continue;
+				}
+				
+				if (Math.abs(getAngle2D(this.position, a.position) - b) < 0.1 && dist2d(this.position, a.position) < this.sentinelDistance)
+				{
+					this.sentinelTicksLeft = this.sentinelTicksTimeout;
+				}
+			}
+			
+			if (this.sentinelTicksLeft == 180)
+			{
+				popDiv(_x(this.position.x), _y(this.position.y), "😮", false, true);
+			}
+			else if (this.sentinelTicksLeft == 0)
+			{
+				popDiv(_x(this.position.x), _y(this.position.y), "😡", false, true);
+				this.sentinelEnabled = false;
+				console.log("panic!");
+				this.panic();
+			}
+		}
+	}
+	
+	panic()
+	{
 	}
 }

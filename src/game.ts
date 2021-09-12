@@ -189,6 +189,12 @@ class Game
 				a.influenceDistance = obj[5];
 			}
 			
+			if (item[0] == OBJ_ROCK2)
+			{
+				a.sentinelEnabled = true;
+			}
+			
+			a.objectType = item[0];
 			a.victoryPoints = obj[4];
 			a.rotationBase = obj[2];
 			a.rotationFollowsTrajectory = obj[3];
@@ -403,7 +409,15 @@ class Game
 	
 	tick()
 	{
+		let a;
+		
 		_stats.ticksPassed++;
+		
+		for (a of this.system.bodies)
+		{
+			a.tick();
+		}
+		
 		this.system.step();
 		this.handleDestroyedObjects();
 		this.system.cleanup();
