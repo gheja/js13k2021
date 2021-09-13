@@ -190,6 +190,18 @@ function b1(action: number)
 	{
 		_game.petDog();
 	}
+	else if (action == 13)
+	{
+		_game.askPlayerName();
+	}
+	else if (action == 14)
+	{
+		_game.tweetLevel();
+	}
+	else if (action == 15)
+	{
+		_game.tweetDog();
+	}
 }
 
 window.addEventListener("load", initWait);
