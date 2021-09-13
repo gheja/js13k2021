@@ -25,6 +25,7 @@
   - [x] name change
   - [x] score submit
   - [x] leaderboard fetch
+- [x] ending?
 
 ## ui
 - [ ] black hole grows? only gfx? something else?
