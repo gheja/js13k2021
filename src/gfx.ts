@@ -8,6 +8,16 @@ function _uiy(a)
 	return (a + _gfx.pad.y + _gfx.levelPad.y) *_gfx.pixelRatio * _gfx.zoom;
 }
 
+function _uijx(a)
+{
+	return (a + _gfx.pad.x + _gfx.levelPad.x) * _gfx.zoom;
+}
+
+function _uijy(a)
+{
+	return (a + _gfx.pad.y + _gfx.levelPad.y) * _gfx.zoom;
+}
+
 function _uipx(a)
 {
 	return a *_gfx.pixelRatio * _gfx.zoom;
@@ -21,6 +31,16 @@ function _x(a)
 function _y(a)
 {
 	return (a + _gfx.pad.y + _gfx.levelPad.y) *_gfx.pixelRatio * _gfx.zoom * _gfx.levelZoom;
+}
+
+function _jx(a)
+{
+	return (a + _gfx.pad.x + _gfx.levelPad.x) * _gfx.zoom * _gfx.levelZoom;
+}
+
+function _jy(a)
+{
+	return (a + _gfx.pad.y + _gfx.levelPad.y) * _gfx.zoom * _gfx.levelZoom;
 }
 
 function _px(a)
