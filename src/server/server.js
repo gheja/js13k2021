@@ -48,7 +48,7 @@ function cleanupScores(array)
 
 async function submitEntry(socket_id, entry)
 {
-	let a = (await storage.get(STORAGE_KEY)) || [];
+	let a;
 	
 	// format:
 	// 0: u: level_index
@@ -64,13 +64,13 @@ async function submitEntry(socket_id, entry)
 	entry[7] = socket_id;
 	entry[8] = (Date.now() / 1000) | 0;
 	
-	a = cleanupScores(a);
-	
+	a = (await storage.get(STORAGE_KEY)) || [];
 	a.push(entry);
+	a = cleanupScores(a);
+	await storage.set(STORAGE_KEY, a);
+	
 	log("a", a);
 	log("b", entry);
-	
-	await storage.set(STORAGE_KEY, a);
 }
 
 async function setName(socket_id, name)
