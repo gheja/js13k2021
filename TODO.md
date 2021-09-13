@@ -21,10 +21,10 @@
 - [x] make ticks independent of frames
 - [x] simplify scoring
 - [x] player name input
-- [ ] networking
-  - [ ] name change
-  - [ ] score submit
-  - [ ] leaderboard fetch
+- [x] networking
+  - [x] name change
+  - [x] score submit
+  - [x] leaderboard fetch
 
 ## ui
 - [ ] black hole grows? only gfx? something else?
@@ -44,10 +44,10 @@
 - [/] tutorial texts
 - [ ] intro text
 - [ ] win screen
-  - [ ] texts
-  - [ ] scores
+  - [x] texts
+  - [x] scores
   - [x] "retry" button
-  - [ ] leaderboard
+  - [x] leaderboard
 - [ ] title screen / main menu
 - [ ] loading screen
 - [x] score popping up when an object falls into black hole
@@ -58,8 +58,8 @@
 - [x] don't show "paused - autopaused" when autopausing while paused
 - [x] don't show "+0"
 - [x] show level number
-- [ ] tweet on win
-- [ ] tweet about petting the dog
+- [x] tweet on win
+- [x] tweet about petting the dog
 
 ## gfx
 - [x] background
@@ -111,6 +111,8 @@
 - [ ] remove one of the directions in "prompt user to rotate phone"
 
 ## bugs
+
+- [x] popDiv()s are appearing in the wrong place when devicePixelRatio != 1
 
 Chrome on iPhone
 - [x] emojis not rendering at all - https://github.com/mozilla/twemoji-colr/issues/50
