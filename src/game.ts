@@ -538,8 +538,8 @@ class Game
 			// gfx?!
 			if (a.victoryPoints > 0)
 			{
-				popDiv(_x(a.position.x), _y(a.position.y), "+" + a.victoryPoints);
-				popDiv(_uix(80), _uiy(5), _stats.victoryPoints, true);
+				popDiv(_jx(a.position.x), _jy(a.position.y), "+" + a.victoryPoints);
+				popDiv(_uijx(80), _uijy(5), _stats.victoryPoints, true);
 			}
 			
 			_music.soundDestroyed();

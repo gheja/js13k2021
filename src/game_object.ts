@@ -71,11 +71,11 @@ class GameObject extends GravityBody
 			
 			if (this.sentinelTicksLeft == this.sentinelTicksWarning)
 			{
-				popDiv(_x(this.position.x), _y(this.position.y), "😮", false, true);
+				popDiv(_jx(this.position.x), _jy(this.position.y), "😮", false, true);
 			}
 			else if (this.sentinelTicksLeft == 0)
 			{
-				popDiv(_x(this.position.x), _y(this.position.y), "😡", false, true);
+				popDiv(_jx(this.position.x), _jy(this.position.y), "😡", false, true);
 				this.sentinelEnabled = false;
 				console.log("panic!");
 				this.panic();
