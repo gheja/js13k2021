@@ -93,6 +93,7 @@ _title "Copying files to build directory..."
 
 try rsync -xa --exclude '*.js' --exclude '*.js.map' --exclude '*.zip' "${source_dir}/" ./
 try rsync -xa "${source_dir}/3rdparty/" ./3rdparty/
+try cp "${source_dir}/externs.js" ./
 
 zip -r9 ${zip_prefix}_original.zip .
 
@@ -112,8 +113,8 @@ echo "travis_fold:start:npm"
 export PATH="${target_dir}/stage1/node_modules/.bin:${PATH}"
 
 files_html="index.html"
-files_javascript=`cat index.html | grep -E '<script.* src="([^"]+)"' | grep -Eo 'src=\".*\"' | cut -d \" -f 2 | grep -vE '^3rdparty/'`
-files_javascript_3rdparty=`cat index.html | grep -E '<script.* src="([^"]+)"' | grep -Eo 'src=\".*\"' | cut -d \" -f 2 | grep -E '^3rdparty/'`
+files_javascript=`cat index.html | grep -E '<script.* src="([^"]+)"' | grep -Eo 'src=\".*\"' | cut -d \" -f 2 | grep -v '/socket.io' | grep -vE '^3rdparty/'`
+files_javascript_3rdparty=`cat index.html | grep -E '<script.* src="([^"]+)"' | grep -Eo 'src=\".*\"' | cut -d \" -f 2 | grep -v '/socket.io' | grep -E '^3rdparty/'`
 files_typescript=`echo "$files_javascript" | sed -r 's/\.js$/.ts/g'`
 files_css=`cat index.html | grep -E '<link type="text/css" rel="stylesheet" href="([^"]+)"' | grep -Eo 'href=\".*\"' | cut -d \" -f 2`
 
@@ -148,6 +149,7 @@ try google-closure-compiler \
 	--language_out ECMASCRIPT_2018 \
 	--formatting PRETTY_PRINT \
 	--formatting SINGLE_QUOTES \
+	--externs externs.js \
 	--js_output_file min_pretty.js \
 	$files_javascript_3rdparty $files_javascript
 
@@ -163,6 +165,7 @@ try google-closure-compiler \
 	--language_in ECMASCRIPT_2018 \
 	--language_out ECMASCRIPT_2018 \
 	--formatting SINGLE_QUOTES \
+	--externs externs.js \
 	--js_output_file min.js \
 	min_pretty.js
 
