@@ -35,7 +35,7 @@ const GAME_STATE_LOST = 3;
 
 const TEXT_DIVIDER = " &nbsp;&#8901;&nbsp; ";
 const TWEET_PREFIX = "https://twitter.com/intent/tweet?text=";
-const TWEET_SUFFIX = "%0A%0APlay%20placeholder%20%23js13k%20game%20by%20%40gheja_%20here:%20js13kgames.com%2Fentries%2Fplaceholder";
+const TWEET_SUFFIX = "%0A%0APlay%20Operation%20Cleanaholeic%20%23js13k%20game%20by%20%40gheja_%20here:%20js13kgames.com%2Fentries%2Foperation-cleanaholeic";
 
 const MESSAGE_NEW_NAME = "a";
 const MESSAGE_ENTRY = "b";
