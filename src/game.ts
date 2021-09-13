@@ -281,6 +281,42 @@ class Game
 		window.open(TWEET_PREFIX + "I%20just%20finished level " + (this.currentLevelIndex + 1) + " scoring 999 points" + (true ? ", it got me %231 on the leaderboard" : "") + "." + TWEET_SUFFIX);
 	}
 	
+	setPlayerName(a)
+	{
+		window.localStorage.setItem("hg:n", a);
+		document.getElementById("p1").innerHTML = this.playerName;
+		this.playerName = a;
+		// TODO: send over socket.io
+	}
+	
+	loadPlayerName()
+	{
+		let a;
+		
+		a = window.localStorage.getItem("hg:n");
+		
+		this.setPlayerName(a ? a : "Player" + Math.round(Math.random() * 8999999 + 1000000));
+	}
+	
+	askPlayerName()
+	{
+		let a;
+		
+		a = window.prompt("New name:", this.playerName);
+		
+		// TODO: this input is not validated or cleaned at all
+		
+		if (a)
+		{
+			a = a.trim().substring(0, 20).trim();
+			
+			if (a)
+			{
+				this.setPlayerName(a);
+			}
+		}
+	}
+	
 	applyDrag(obj: SystemObject)
 	{
 		obj.velocity.x += this.currentDragVector.x;

@@ -114,6 +114,7 @@ function initGame()
 	_game = new Game();
 	_game.loadLevel(0);
 	_game.checkDog();
+	_game.loadPlayerName();
 }
 
 function init()
