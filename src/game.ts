@@ -380,7 +380,7 @@ class Game
 	
 	tweetLevel()
 	{
-		window.open(TWEET_PREFIX + "I%20just%20finished level " + (this.currentLevelIndex + 1) + " scoring 999 points" + (true ? ", it got me %231 on the leaderboard" : "") + "." + TWEET_SUFFIX);
+		window.open(TWEET_PREFIX + "I%20just%20finished%20level%20" + (this.currentLevelIndex + 1) + "%20scoring%20" + _stats.finalScore  + "%20points" + (this.bestPlace ? "%20and%20I%20am%20now%20at%20" + st(this.bestPlace) + "%20place%20on%20the%20leaderboard." : ".") + TWEET_SUFFIX);
 	}
 	
 	setPlayerName(a)
