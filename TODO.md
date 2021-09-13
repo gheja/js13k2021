@@ -20,6 +20,11 @@
 - [x] tutorial
 - [x] make ticks independent of frames
 - [ ] simplify scoring
+- [ ] player name input
+- [ ] networking
+  - [ ] name change
+  - [ ] score submit
+  - [ ] leaderboard fetch
 
 ## ui
 - [ ] black hole grows? only gfx? something else?
