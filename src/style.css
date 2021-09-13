@@ -291,3 +291,9 @@ button:hover
 	bottom: 8rem;
 	display: none;
 }
+
+#e1
+{
+	font-family: twemoji;
+	opacity: 0;
+}
