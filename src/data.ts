@@ -150,4 +150,13 @@ let _levels = [
 		1, 0, 5, 1.5, 60,
 		"",
 	],
+	
+	// #10
+	[
+		[
+			[ OBJ_BLACK_HOLE, 48, 25,  0,     0, 1e10 ],
+		],
+		1, 0, 5, 2, 42,
+		"Well, this is how far I got with the game.<br/><br/>This is not really a level, just a way to say good bye.<br/><br/>Thanks for playing, I really appreciate it!<br/><br/>Gabor Heja, 2021",
+	],
 ];
