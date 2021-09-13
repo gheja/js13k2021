@@ -474,6 +474,19 @@ class Game
 					this.unlockDog();
 				}
 			}
+			
+			_stats.finalScore = _stats.victoryPoints * 100 - Math.floor(_stats.correctionTotalCost) - Math.floor(_stats.ticksPassed / 10);
+			
+			document.getElementById("d3").innerHTML =
+				_stats.victoryPoints + "<br/>" +
+				Math.floor(_stats.correctionTotalCost) + "f<br/>" +
+				this.ticksToTime(_stats.ticksPassed) + "<br/>";
+			
+			document.getElementById("d4").innerHTML =
+				"+" + (_stats.victoryPoints * 100) + "<br/>" +
+				"-" + Math.floor(_stats.correctionTotalCost) + "<br/>" +
+				"-" + (Math.floor(_stats.ticksPassed / 10)) + "<br/>" +
+				"<i>Final score: " + _stats.finalScore + "</i>";
 		}
 		else if (this.friendDestroyed)
 		{
