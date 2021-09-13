@@ -19,8 +19,8 @@
 - [x] levels should include zoom too
 - [x] tutorial
 - [x] make ticks independent of frames
-- [ ] simplify scoring
-- [ ] player name input
+- [x] simplify scoring
+- [x] player name input
 - [ ] networking
   - [ ] name change
   - [ ] score submit
@@ -46,7 +46,7 @@
 - [ ] win screen
   - [ ] texts
   - [ ] scores
-  - [ ] "retry" button
+  - [x] "retry" button
   - [ ] leaderboard
 - [ ] title screen / main menu
 - [ ] loading screen
@@ -57,7 +57,7 @@
 - [x] pet the dog
 - [x] don't show "paused - autopaused" when autopausing while paused
 - [x] don't show "+0"
-- [ ] show level number
+- [x] show level number
 - [ ] tweet on win
 - [ ] tweet about petting the dog
 
