@@ -167,6 +167,7 @@ class Game
 		_stats.ticksPassed = 0;
 		_stats.correctionCount = 0;
 		_stats.correctionTotalCost = 0;
+		_stats.finalScore = 0;
 		
 		this.gameState = GAME_STATE_RUNNING;
 		this.system.bodies = [];

@@ -5,4 +5,5 @@ let _stats = {
 	ticksPassed: 0,
 	correctionCount: 0,
 	correctionTotalCost: 0,
+	finalScore: 0,
 };
