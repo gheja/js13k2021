@@ -21,6 +21,7 @@ class Game
 	lastFrameTime: number;
 	socket;
 	online: boolean;
+	bestPlace: number;
 	
 	constructor()
 	{
@@ -85,6 +86,11 @@ class Game
 				
 				if (this.socket.id == a[7])
 				{
+					if (!this.bestPlace)
+					{
+						this.bestPlace = n;
+					}
+					
 					s += "<span>" + t + "</span>";
 				}
 				else
@@ -113,6 +119,8 @@ class Game
 	
 	askForBoardData()
 	{
+		this.bestPlace = null;
+		
 		if (this.online)
 		{
 			document.getElementById("l1").innerHTML = "Refreshing...";
@@ -267,6 +275,7 @@ class Game
 		this.correctionBalance = 0;
 		this.correctionBalanceMax = 200;
 		this.friendDestroyed = false;
+		this.bestPlace = null;
 		_gfx.levelPad.x = level[2];
 		_gfx.levelPad.y = level[3];
 		_gfx.levelZoom = level[4];
