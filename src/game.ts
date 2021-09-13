@@ -19,6 +19,8 @@ class Game
 	correctionBalanceMax: number;
 	
 	lastFrameTime: number;
+	socket;
+	online: boolean;
 	
 	constructor()
 	{
@@ -29,8 +31,98 @@ class Game
 		this.autopaused = false;
 		this.autopauseEnabled = true;
 		this.currentDragPicked = false;
+		this.online = false;
 		this.setTooltip("");
 		this.lastFrameTime = performance.now();
+		
+		if (typeof io !== "undefined")
+		{
+			this.socket = io({ upgrade: false, transports: ["websocket"] });
+		}
+		else
+		{
+			this.socket = { emit: function() {}, on: function() {} };
+		}
+		
+		this.socket.on("connect", this.onConnected.bind(this));
+		this.socket.on("disconnect", this.onDisconnected.bind(this));
+		this.socket.on(MESSAGE_BOARD_DATA, this.onBoardData.bind(this));
+	}
+	
+	onConnected()
+	{
+		this.online = true;
+	}
+	
+	onDisconnected()
+	{
+		this.online = false;
+	}
+	
+	onBoardData(data)
+	{
+		let a, s, t, n;
+		
+		// 0: u: level_index
+		// 1: u: points
+		// 2: u: corrections
+		// 3: u: force_used
+		// 4: u: time
+		// 5: u: score
+		// 6: u: name
+		// 7: socket_id
+		// 8: timestamp
+		
+		n = 0;
+		s = "";
+		for (a of data)
+		{
+			if (a[0] == this.currentLevelIndex)
+			{
+				n++;
+				
+				t = "#" + n + ": " + a[5] + " pts - " + a[6];
+				
+				if (this.socket.id == a[7])
+				{
+					s += "<span>" + t + "</span>";
+				}
+				else
+				{
+					s += t;
+				}
+				
+				s += "<br/>";
+				
+				if (n == 5)
+				{
+					break;
+				}
+			}
+		}
+		
+		while (n < 5)
+		{
+			n++;
+			s += "#" + n + " (no score yet)<br/>";
+		}
+		
+		document.getElementById("l1").innerHTML = s;
+		
+	}
+	
+	askForBoardData()
+	{
+		if (this.online)
+		{
+			document.getElementById("l1").innerHTML = "Refreshing...";
+			
+			window.setTimeout(this.socket.emit.bind(this.socket, MESSAGE_REQUEST_BOARD), 100);
+		}
+		else
+		{
+			document.getElementById("l1").innerHTML = "Leaderboard is not available.";
+		}
 	}
 	
 	setTooltip(s)
@@ -287,7 +379,8 @@ class Game
 		this.playerName = a;
 		window.localStorage.setItem("hg:n", a);
 		document.getElementById("p1").innerHTML = this.playerName;
-		// TODO: send over socket.io
+		this.socket.emit(MESSAGE_NEW_NAME, a);
+		this.askForBoardData();
 	}
 	
 	loadPlayerName()
@@ -487,6 +580,9 @@ class Game
 				"-" + Math.floor(_stats.correctionTotalCost) + "<br/>" +
 				"-" + (Math.floor(_stats.ticksPassed / 10)) + "<br/>" +
 				"<i>Final score: " + _stats.finalScore + "</i>";
+			
+			this.socket.emit(MESSAGE_ENTRY, [ this.currentLevelIndex, _stats.victoryPoints, _stats.correctionCount, Math.floor(_stats.correctionTotalCost), _stats.ticksPassed, _stats.finalScore, this.playerName ]);
+			this.askForBoardData();
 		}
 		else if (this.friendDestroyed)
 		{
