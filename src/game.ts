@@ -283,9 +283,9 @@ class Game
 	
 	setPlayerName(a)
 	{
+		this.playerName = a;
 		window.localStorage.setItem("hg:n", a);
 		document.getElementById("p1").innerHTML = this.playerName;
-		this.playerName = a;
 		// TODO: send over socket.io
 	}
 	
