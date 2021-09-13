@@ -145,6 +145,30 @@ function initWait()
 	init();
 }
 
+function introShowLine(obj)
+{
+	obj.classList.add("shown");
+}
+
+function introStart()
+{
+	let a, delay;
+	
+	delay = 500;
+	
+	for (a of document.querySelectorAll("#intro > div > p"))
+	{
+		window.setTimeout(introShowLine.bind(null, a), delay);
+		delay += 1000;
+	}
+}
+
+function initFirst()
+{
+	introStart();
+	initWait();
+}
+
 function b1(action: number)
 {
 	if (action == 1)
@@ -204,4 +228,4 @@ function b1(action: number)
 	}
 }
 
-window.addEventListener("load", initWait);
+window.addEventListener("load", initFirst);
