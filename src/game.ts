@@ -491,6 +491,7 @@ class Game
 		let a;
 		
 		this.setStatus(
+			"Level " + (this.currentLevelIndex + 1) + TEXT_DIVIDER +
 			_stats.correctionCount + " corrections (" + Math.floor(_stats.correctionTotalCost) + "f) " + TEXT_DIVIDER +
 			_stats.victoryPoints + " / " + _stats.victoryPointsGoal + TEXT_DIVIDER +
 			this.ticksToTime(_stats.ticksPassed)
