@@ -125,7 +125,7 @@ class Game
 		{
 			document.getElementById("l1").innerHTML = "Refreshing...";
 			
-			window.setTimeout(this.socket.emit.bind(this.socket, MESSAGE_REQUEST_BOARD), 100);
+			window.setTimeout(this.socket.emit.bind(this.socket, MESSAGE_REQUEST_BOARD), 300);
 		}
 		else
 		{
